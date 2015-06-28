@@ -3,6 +3,7 @@
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
@@ -17,6 +18,14 @@
 
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
+
+            // SoundTest
+            SoundEffect test = Content.Load<SoundEffect>("GoT");
+            SoundManager.Add("GoT", test);
+            SoundManager.Play("GoT");
+            SoundManager.Pause("GoT");
+            SoundManager.Resume("GoT");
+            SoundManager.Stop("GoT");
         }
 
         protected override void Initialize()

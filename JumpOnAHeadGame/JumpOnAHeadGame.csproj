@@ -46,6 +46,7 @@
     <Compile Include="Controller\Globals.cs" />
     <Compile Include="Controller\EntryPoint.cs" />
     <Compile Include="Controller\Managers\KeyboardButtonState.cs" />
+    <Compile Include="Controller\Managers\SoundManager.cs" />
     <Compile Include="Controller\StateMachine.cs" />
     <Compile Include="Controller\States\InitialState.cs" />
     <Compile Include="Controller\States\State.cs" />
