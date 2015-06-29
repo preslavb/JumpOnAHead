@@ -3,6 +3,7 @@
     using JumpOnAHeadGame.View;
     using JumpOnAHeadGame.View.UI;
     using System.Collections.Generic;
+
     public abstract class State
     {
         public State(State nextState)

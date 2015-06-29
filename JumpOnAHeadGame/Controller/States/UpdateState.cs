@@ -14,6 +14,7 @@
             this.NextState = nextState;
             IsDone = false;
 
+            this.SpritesInState.Add(UIInitializer.LevelBackground.Sprite);
             this.SpritesInState.Add(UIInitializer.PlayerUI1.PlayerAnimation);
             this.SpritesInState.Add(UIInitializer.PlayerUI2.PlayerAnimation);
         }
@@ -33,7 +34,7 @@
                 StateMachine.currentLevel.player2.Move();
                 UIInitializer.PlayerUI2.PlayerAnimation.Position = StateMachine.currentLevel.player2.Position;
                 UIInitializer.PlayerUI2.PlayerAnimation.ChangeAnimation(StateMachine.currentLevel.player2.State);
-                UIInitializer.PlayerUI2.PlayerAnimation.Tint = Color.Blue;
+                UIInitializer.PlayerUI2.PlayerAnimation.Tint = Color.Aquamarine;
 
                 //System.Console.WriteLine("{0},{1}", StateMachine.currentLevel.player1.Position.X, StateMachine.currentLevel.player1.Position.Y);
             }

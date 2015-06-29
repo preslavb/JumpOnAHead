@@ -1,4 +1,4 @@
-﻿namespace Monopoly.View.UI
+﻿namespace JumpOnAHeadGame.View.UI.Models
 {
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;

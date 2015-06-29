@@ -1,10 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
     using JumpOnAHeadGame.Controller.Managers;
-    using JumpOnAHeadGame.Model;
     using JumpOnAHeadGame.View;
-    using JumpOnAHeadGame.View.UI.Models;
-    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
 
     public class MenuState : State
@@ -17,7 +14,7 @@
             this.NextState = nextState;
             IsDone = false;
 
-            this.SpritesInState.Add(UIInitializer.Background.Image);
+            this.SpritesInState.Add(UIInitializer.Background.Sprite);
             this.SpritesInState.Add(UIInitializer.StartButton.Sprite);
             this.SpritesInState.Add(UIInitializer.ExitButton.Sprite);
         }

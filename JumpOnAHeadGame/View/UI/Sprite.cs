@@ -2,6 +2,7 @@
 {
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
+
     public class Sprite : IRenderable
     {
         public Vector2 Position { get; set; }

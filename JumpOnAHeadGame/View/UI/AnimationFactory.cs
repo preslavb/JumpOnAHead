@@ -33,16 +33,5 @@
             return currentAnimation;
         }
 
-        public static Animation CreateGameMenu()
-        {
-            Animation currentAnimation = new Animation(new Vector2(1280, 1024), Globals.Content.Load<Texture2D>("GameMenu"),100);
-            currentAnimation.AnimationStates = new List<AnimationState>();
-            currentAnimation.AnimationStates.Add(new AnimationState("Initial", new Vector2(1280, 1024), 0, 0));
-
-            currentAnimation.Tint = Color.White;
-            currentAnimation.ChangeAnimation("Initial");
-
-            return currentAnimation;
-        }
     }
 }

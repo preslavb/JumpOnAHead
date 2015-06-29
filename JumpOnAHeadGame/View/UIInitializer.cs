@@ -6,7 +6,6 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
-    using Monopoly.View.UI;
 
     public static class UIInitializer
     {
@@ -15,36 +14,27 @@
 
         public static SplashScreenUI SplashScreen = new SplashScreenUI(AnimationFactory.CreateSplashScreen());
 
-        public static Background Background = CreateBackground();
+        public static Background Background = CreateBackground("MenuImage");
+        public static Background LevelBackground = CreateBackground("GameBackground");
 
-        public static Button StartButton = CreateStartButton();
-        public static Button ExitButton = CreateExitButton();
 
-        public static Button CreateStartButton()
+        public static Button StartButton = CreateButton("StartNormal","StartHover",new Vector2((Globals.Graphics.PreferredBackBufferWidth - 200) / 2, 275));
+        public static Button ExitButton = CreateButton("ExitNormal", "ExitHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 200) / 2, 375));
+
+        public static Button CreateButton(string buttonNormal,string buttonHover, Vector2 position)
         {
-            Texture2D startNormal = Globals.Content.Load<Texture2D>("StartNormal");
-            Texture2D startHover = Globals.Content.Load<Texture2D>("StartHover");
+            Texture2D startNormal = Globals.Content.Load<Texture2D>(buttonNormal);
+            Texture2D startHover = Globals.Content.Load<Texture2D>(buttonHover);
 
-            Sprite startSprite = new Sprite(startNormal, new Vector2((Globals.Graphics.PreferredBackBufferWidth-startNormal.Width)/2, 275));
+            Sprite startSprite = new Sprite(startNormal, position);
             Button startButton = new Button(startSprite, startHover,startNormal);
 
             return startButton;
         }
 
-        public static Button CreateExitButton()
+        public static Background CreateBackground(string fileName)
         {
-            Texture2D exitNormal = Globals.Content.Load<Texture2D>("ExitNormal");
-            Texture2D exitHover = Globals.Content.Load<Texture2D>("ExitHover");
-
-            Sprite exitSprite = new Sprite(exitNormal, new Vector2((Globals.Graphics.PreferredBackBufferWidth - exitNormal.Width) / 2, 375));
-            Button startButton = new Button(exitSprite, exitHover, exitNormal);
-
-            return startButton;
-        }
-
-        public static Background CreateBackground()
-        {
-            Texture2D backgroundImage = Globals.Content.Load<Texture2D>("MenuImage");
+            Texture2D backgroundImage = Globals.Content.Load<Texture2D>(fileName);
             Sprite backgroundSprite = new Sprite(backgroundImage);
             Background background = new Background(backgroundSprite);
 

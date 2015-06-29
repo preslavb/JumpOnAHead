@@ -1,4 +1,4 @@
-﻿namespace Monopoly.View.UI
+﻿namespace JumpOnAHeadGame.View.UI.Models
 {
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
@@ -8,9 +8,9 @@
     {
         public Background(Sprite image)
         {
-            this.Image = image;
+            this.Sprite = image;
         }
 
-        public Sprite Image { get; set; }
+        public Sprite Sprite { get; set; }
     }
 }
