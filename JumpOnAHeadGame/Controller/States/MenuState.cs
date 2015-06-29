@@ -1,23 +1,21 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
     using JumpOnAHeadGame.Controller.Managers;
+    using JumpOnAHeadGame.Model;
     using JumpOnAHeadGame.View;
-    using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
-    public class InitialState : State
+    public class MenuState : State
     {
         private bool IsDone { get; set; }
-
-        public InitialState(State nextState)
-            :base(nextState)
+        public MenuState(State nextState)
+            : base(nextState)
         {
             this.NextState = nextState;
-            this.IsDone = false;
+            IsDone = false;
 
-            this.SpritesInState.Add(UIInitializer.SplashScreen.splashScreen);
+            this.SpritesInState.Add(UIInitializer.GameMenu.gameMenu);
         }
 
         public override void Execute()
@@ -28,10 +26,10 @@
 
                 foreach (KeyboardButtonState Key in InputHandler.ActiveKeys)
                 {
-                    if (Key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                    if (Key.Button != Keys.Escape && Key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         IsDone = true;
-                        this.NextState = new MenuState(this);
+                        this.NextState = new UpdateState(this);
                     }
                 }
             }
@@ -40,7 +38,6 @@
         public override void Draw(AbstractRenderer renderer)
         {
             renderer.DrawState(this.SpritesInState);
-            //Globals.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
         }
     }
 }
