@@ -62,7 +62,7 @@
     <Compile Include="View\UI\AnimationFactory.cs" />
     <Compile Include="View\UI\AnimationState.cs" />
     <Compile Include="View\UI\IRenderable.cs" />
-    <Compile Include="View\UI\Models\GameMenuUI.cs" />
+    <Compile Include="View\UI\Models\Background.cs" />
     <Compile Include="View\UI\Models\PlayerUI.cs" />
     <Compile Include="View\UI\Models\SplashScreenUI.cs" />
     <Compile Include="View\UI\Sprite.cs" />

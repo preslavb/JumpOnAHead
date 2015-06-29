@@ -4,11 +4,12 @@
     using Microsoft.Xna.Framework;
     using JumpOnAHeadGame.Controller;
     using Microsoft.Xna.Framework.Graphics;
+
     public static class AnimationFactory
     {
         public static Animation CreatePlayerAnimation()
         {
-            Animation currentAnimation = new Animation(new Vector2(96, 135), Globals.Content.Load<Texture2D>("PlayerSpriteSheet"));
+            Animation currentAnimation = new Animation(new Vector2(96, 135), Globals.Content.Load<Texture2D>("PlayerSpriteSheet"),60);
             currentAnimation.AnimationStates = new List<AnimationState>();
             currentAnimation.AnimationStates.Add(new AnimationState("Running", new Vector2(96, 135), 9, 0));
             currentAnimation.AnimationStates.Add(new AnimationState("Walking", new Vector2(96, 135), 12, 1));
@@ -21,7 +22,7 @@
 
         public static Animation CreateSplashScreen()
         {
-            Animation currentAnimation = new Animation(new Vector2(1280, 1024), Globals.Content.Load<Texture2D>("SplashScreen"));
+            Animation currentAnimation = new Animation(new Vector2(1280, 1024), Globals.Content.Load<Texture2D>("SplashScreen"),500);
             currentAnimation.AnimationStates = new List<AnimationState>();
             currentAnimation.AnimationStates.Add(new AnimationState("Normal", new Vector2(1280, 1024), 1, 0));
 
@@ -34,7 +35,7 @@
 
         public static Animation CreateGameMenu()
         {
-            Animation currentAnimation = new Animation(new Vector2(1280, 1024), Globals.Content.Load<Texture2D>("GameMenu"));
+            Animation currentAnimation = new Animation(new Vector2(1280, 1024), Globals.Content.Load<Texture2D>("GameMenu"),100);
             currentAnimation.AnimationStates = new List<AnimationState>();
             currentAnimation.AnimationStates.Add(new AnimationState("Initial", new Vector2(1280, 1024), 0, 0));
 

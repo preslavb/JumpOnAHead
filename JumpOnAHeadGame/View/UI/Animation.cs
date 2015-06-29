@@ -27,12 +27,12 @@
         private int SwitchFrameTimer { get; set; }
         private int ElapsedMilliseconds { get; set; }
 
-        public Animation(Vector2 frameDimensions, Texture2D spriteSheet)
+        public Animation(Vector2 frameDimensions, Texture2D spriteSheet, int switchFrameTimer)
         {
             this.SourceRectangle = new Rectangle(0, 0, (int)frameDimensions.X, (int)frameDimensions.Y);
             this.Texture = spriteSheet;
 
-            this.SwitchFrameTimer = 60;
+            this.SwitchFrameTimer = switchFrameTimer;
         }
 
         private void Update()

@@ -16,6 +16,8 @@
             Globals.Content = Content;
             Globals.Content.RootDirectory = "Content";
 
+            IsMouseVisible = true;
+
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
 

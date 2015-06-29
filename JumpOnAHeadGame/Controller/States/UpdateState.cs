@@ -4,6 +4,7 @@
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
+
     public class UpdateState : State
     {
         private bool IsDone { get; set; }
@@ -11,9 +12,10 @@
             : base(nextState)
         {
             this.NextState = nextState;
+            IsDone = false;
+
             this.SpritesInState.Add(UIInitializer.PlayerUI1.PlayerAnimation);
             this.SpritesInState.Add(UIInitializer.PlayerUI2.PlayerAnimation);
-            IsDone = false;
         }
 
         public override void Execute()
@@ -21,6 +23,9 @@
             if (!IsDone)
             {
                 this.NextState = this;
+
+                SoundManager.Stop("GoT");
+
                 StateMachine.currentLevel.player1.Move();
                 UIInitializer.PlayerUI1.PlayerAnimation.Position = StateMachine.currentLevel.player1.Position;
                 UIInitializer.PlayerUI1.PlayerAnimation.ChangeAnimation(StateMachine.currentLevel.player1.State);
