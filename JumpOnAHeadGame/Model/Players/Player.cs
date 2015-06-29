@@ -49,10 +49,6 @@
                 {
                     // TODO
                 }
-             //  if (Key.Button != this.Controls["Move Left"] || Key.Button != this.Controls["Move Right"] || Key.Button != this.Controls["Jump"] || Key.Button != this.Controls["Dash"])
-             //  {
-             //      this.State = "Idle";
-             //  }
             }
         }
     }

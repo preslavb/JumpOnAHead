@@ -12,7 +12,6 @@ namespace JumpOnAHeadGame.View.UI.Models
         public PlayerUI(Animation animation)
         {
             this.PlayerAnimation = animation;
-
         }
     }
 }
