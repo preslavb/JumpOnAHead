@@ -1,8 +1,9 @@
 ﻿namespace JumpOnAHeadGame.Controller
 {
     using JumpOnAHeadGame.Controller.States;
-using JumpOnAHeadGame.Model;
-using System.Collections.Generic;
+    using JumpOnAHeadGame.Model;
+    using System.Collections.Generic;
+
     public static class StateMachine
     {
         public static List<State> ListOfStates { get; set; }

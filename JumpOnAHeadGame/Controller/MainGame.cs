@@ -21,6 +21,9 @@
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
 
+            // For Later
+            // Globals.Graphics.IsFullScreen = true;
+
             // SoundTest
             SoundEffect test = Content.Load<SoundEffect>("GoT");
             SoundManager.Add("GoT", test);

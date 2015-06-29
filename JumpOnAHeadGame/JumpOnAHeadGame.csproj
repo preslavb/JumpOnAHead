@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CF500730-5160-447B-AC45-D802A197D1A7}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JumpOnAHeadGame</RootNamespace>
     <AssemblyName>JumpOnAHeadGame</AssemblyName>
@@ -63,6 +63,7 @@
     <Compile Include="View\UI\AnimationState.cs" />
     <Compile Include="View\UI\IRenderable.cs" />
     <Compile Include="View\UI\Models\Background.cs" />
+    <Compile Include="View\UI\Models\Button.cs" />
     <Compile Include="View\UI\Models\PlayerUI.cs" />
     <Compile Include="View\UI\Models\SplashScreenUI.cs" />
     <Compile Include="View\UI\Sprite.cs" />
