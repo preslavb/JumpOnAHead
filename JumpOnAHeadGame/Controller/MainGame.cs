@@ -17,6 +17,8 @@
 
             IsMouseVisible = true;
 
+            Window.Title = "Overdrive?!";
+
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
 
