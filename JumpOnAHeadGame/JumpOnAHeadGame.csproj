@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CF500730-5160-447B-AC45-D802A197D1A7}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JumpOnAHeadGame</RootNamespace>
     <AssemblyName>JumpOnAHeadGame</AssemblyName>
@@ -46,8 +46,10 @@
     <Compile Include="Controller\Globals.cs" />
     <Compile Include="Controller\EntryPoint.cs" />
     <Compile Include="Controller\Managers\KeyboardButtonState.cs" />
+    <Compile Include="Controller\Managers\SoundManager.cs" />
     <Compile Include="Controller\StateMachine.cs" />
     <Compile Include="Controller\States\InitialState.cs" />
+    <Compile Include="Controller\States\MenuState.cs" />
     <Compile Include="Controller\States\State.cs" />
     <Compile Include="Controller\States\UpdateState.cs" />
     <Compile Include="Model\Level.cs" />
@@ -60,7 +62,10 @@
     <Compile Include="View\UI\AnimationFactory.cs" />
     <Compile Include="View\UI\AnimationState.cs" />
     <Compile Include="View\UI\IRenderable.cs" />
+    <Compile Include="View\UI\Models\Background.cs" />
+    <Compile Include="View\UI\Models\Button.cs" />
     <Compile Include="View\UI\Models\PlayerUI.cs" />
+    <Compile Include="View\UI\Models\SplashScreenUI.cs" />
     <Compile Include="View\UI\Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\PlayerSpriteSheet.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

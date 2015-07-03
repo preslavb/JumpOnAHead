@@ -3,8 +3,8 @@
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
-    using Microsoft.Xna.Framework.Input;
 
     public class Game1 : Game
     {
@@ -15,8 +15,21 @@
             Globals.Content = Content;
             Globals.Content.RootDirectory = "Content";
 
+            IsMouseVisible = true;
+
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
+
+            // For Later
+            // Globals.Graphics.IsFullScreen = true;
+
+            // SoundTest
+            SoundEffect test = Content.Load<SoundEffect>("GoT");
+            SoundManager.Add("GoT", test);
+            SoundManager.Play("GoT");
+            SoundManager.Pause("GoT");
+            SoundManager.Resume("GoT");
+            SoundManager.Stop("GoT");
         }
 
         protected override void Initialize()

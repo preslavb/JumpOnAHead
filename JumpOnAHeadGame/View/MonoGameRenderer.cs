@@ -4,6 +4,7 @@
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
     using System.Collections.Generic;
+
     public class MonoGameRenderer : AbstractRenderer
     {
         public override void DrawState(List<IRenderable> spritesToDraw)

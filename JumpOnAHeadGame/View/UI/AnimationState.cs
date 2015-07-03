@@ -1,6 +1,7 @@
 ﻿namespace JumpOnAHeadGame.View.UI
 {
     using Microsoft.Xna.Framework;
+
     public class AnimationState
     {
         public string Name { get; set; }
