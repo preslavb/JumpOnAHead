@@ -1,0 +1,67 @@
+﻿namespace JumpOnAHeadGame.Model.Players
+{
+    using JumpOnAHeadGame.View.UI;
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Input;
+
+    public class Snowball
+    {
+        private const int LEFT_BOUND = -40;
+        private const int RIGHT_BOUND = 1240;
+        private const float FALL_VELOCITY = 0.8f;
+        private const float BALL_SPEED = 8;
+
+        public Snowball(Vector2 position, Sprite sprite, bool isGoingRight)
+        {
+            this.Position = position;
+            this.Sprite = sprite;
+            this.IsMelting = false;
+            this.IsGoingRight = isGoingRight;
+        }
+
+        public Vector2 Position { get; set; }
+
+        public Rectangle Bounds { get; set; }
+
+        public Sprite Sprite { get; set; }
+
+        public bool IsMelting { get; set; }
+
+        public bool IsGoingRight { get; set; }
+
+        public void Move()
+        {
+            float ballSpeed;
+            if (this.IsGoingRight)
+            {
+                ballSpeed = BALL_SPEED;
+            }
+            else
+            {
+                ballSpeed = -BALL_SPEED;
+            }
+
+            if (this.Position.Y + FALL_VELOCITY < 900)
+            {
+                if (this.Position.X + ballSpeed < LEFT_BOUND)
+                {
+                    this.Position = new Vector2(RIGHT_BOUND, this.Position.Y);
+                }
+                else if (this.Position.X + ballSpeed > RIGHT_BOUND)
+                {
+                    this.Position = new Vector2(LEFT_BOUND, this.Position.Y);
+                }
+                else
+                {
+                    this.Position = new Vector2(this.Position.X + ballSpeed, this.Position.Y);
+                }
+
+                this.Position = new Vector2(this.Position.X, this.Position.Y + FALL_VELOCITY);
+            }
+            else
+            {
+                this.IsMelting = true;
+            }
+        }
+    }
+}
