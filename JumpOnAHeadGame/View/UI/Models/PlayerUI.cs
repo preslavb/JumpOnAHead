@@ -2,11 +2,11 @@
 {
     public class PlayerUI
     {
-        public Animation PlayerAnimation { get; set; }
-
         public PlayerUI(Animation animation)
         {
             this.PlayerAnimation = animation;
         }
+
+        public Animation PlayerAnimation { get; set; }
     }
 }

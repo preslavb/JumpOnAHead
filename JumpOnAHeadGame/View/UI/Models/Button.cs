@@ -14,9 +14,10 @@
         }
 
         public Sprite Sprite { get; set; }
-        private Texture2D HoverImage { get; set; }
-        private Texture2D NormalImage { get; set; }
 
+        private Texture2D HoverImage { get; set; }
+
+        private Texture2D NormalImage { get; set; }
 
         public void ChangeToHoverImage()
         {

@@ -5,28 +5,28 @@
 
     public class InitialState : State
     {
-        private bool IsDone { get; set; }
-
         public InitialState(State nextState)
-            :base(nextState)
+            : base(nextState)
         {
             this.NextState = nextState;
             this.IsDone = false;
 
-            this.SpritesInState.Add(UIInitializer.SplashScreen.splashScreen);
+            this.SpritesInState.Add(UIInitializer.SplashScreen.SplashScreen);
         }
+
+        private bool IsDone { get; set; }
 
         public override void Execute()
         {
-            if (!IsDone)
+            if (!this.IsDone)
             {
                 this.NextState = this;
 
-                foreach (KeyboardButtonState Key in InputHandler.ActiveKeys)
+                foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
-                    if (Key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                    if (key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
-                        IsDone = true;
+                        this.IsDone = true;
                         this.NextState = new MenuState(this);
                     }
                 }
@@ -36,7 +36,7 @@
         public override void Draw(AbstractRenderer renderer)
         {
             renderer.DrawState(this.SpritesInState);
-            //Globals.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+            //// Globals.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
         }
     }
 }

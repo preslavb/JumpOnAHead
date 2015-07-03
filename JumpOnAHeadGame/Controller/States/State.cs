@@ -1,8 +1,8 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
+    using System.Collections.Generic;
     using JumpOnAHeadGame.View;
     using JumpOnAHeadGame.View.UI;
-    using System.Collections.Generic;
 
     public abstract class State
     {
@@ -17,6 +17,7 @@
         public List<IRenderable> SpritesInState { get; set; }
 
         public abstract void Execute();
+
         public virtual void Draw(AbstractRenderer renderer)
         {
             renderer.DrawState(this.SpritesInState);

@@ -2,11 +2,11 @@
 {
     public class SplashScreenUI
     {
-        public Animation splashScreen { get; set; }
-
         public SplashScreenUI(Animation animation)
         {
-            this.splashScreen = animation;
+            this.SplashScreen = animation;
         }
+
+        public Animation SplashScreen { get; set; }
     }
 }

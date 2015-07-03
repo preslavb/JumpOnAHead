@@ -9,15 +9,16 @@
     public class Game1 : Game
     {
         private MonoGameRenderer renderer;
+
         public Game1()
         {
             Globals.Graphics = new GraphicsDeviceManager(this);
-            Globals.Content = Content;
+            Globals.Content = this.Content;
             Globals.Content.RootDirectory = "Content";
 
-            IsMouseVisible = true;
+            this.IsMouseVisible = true;
 
-            Window.Title = "Overdrive?!";
+            Window.Title = "Snow Fighter!";
 
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
@@ -36,12 +37,13 @@
 
         protected override void Initialize()
         {
-            renderer = new MonoGameRenderer();
+            this.renderer = new MonoGameRenderer();
             InputHandler.Initialize();
             StateMachine.Initialize();
 
             base.Initialize();
         }
+
         protected override void LoadContent()
         {
             Globals.SpriteBatch = new SpriteBatch(GraphicsDevice);
@@ -54,7 +56,7 @@
 
         protected override void Update(GameTime gameTime)
         {
-            Globals.gameTime = gameTime;
+            Globals.GameTime = gameTime;
             InputHandler.Update();
             StateMachine.Update();
 

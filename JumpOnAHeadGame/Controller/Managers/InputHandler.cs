@@ -5,9 +5,8 @@
 
     public static class InputHandler
     {
-        //private static List<Keys> pressedKeys;
-        //private static List<KeyState> pressedKeysStates;
-
+        // private static List<Keys> pressedKeys;
+        // private static List<KeyState> pressedKeysStates;
         private enum MouseKeys
         {
             Left,
@@ -63,18 +62,18 @@
                 KeyToCheck = currentState.GetPressedKeys()[i];
                 if (previousState.IsKeyUp(KeyToCheck) && currentState.IsKeyDown(KeyToCheck))
                 {
-                    //pressedKeys.Add(KeyToCheck);
-                    //pressedKeysStates.Add(KeyState.Clicked);
+                    // pressedKeys.Add(KeyToCheck);
+                    // pressedKeysStates.Add(KeyState.Clicked);
                     ActiveKeys.Add(new KeyboardButtonState(KeyToCheck));
                 }
                 else if (previousState.IsKeyDown(KeyToCheck) && currentState.IsKeyDown(KeyToCheck))
                 {
-                    //pressedKeysStates[pressedKeys.IndexOf(KeyToCheck)] = KeyState.Held;
-                    foreach (KeyboardButtonState Key in ActiveKeys)
+                    // pressedKeysStates[pressedKeys.IndexOf(KeyToCheck)] = KeyState.Held;
+                    foreach (KeyboardButtonState key in ActiveKeys)
                     {
-                        if (Key.Button == KeyToCheck)
+                        if (key.Button == KeyToCheck)
                         {
-                            Key.ButtonState = KeyboardButtonState.KeyState.Held;
+                            key.ButtonState = KeyboardButtonState.KeyState.Held;
                         }
                     }
                 }
@@ -85,12 +84,12 @@
                 KeyToCheck = previousState.GetPressedKeys()[i];
                 if (previousState.IsKeyDown(KeyToCheck) && currentState.IsKeyUp(KeyToCheck))
                 {
-                    //pressedKeysStates[pressedKeys.IndexOf(KeyToCheck)] = KeyState.Released;
-                    foreach (KeyboardButtonState Key in ActiveKeys)
+                    // pressedKeysStates[pressedKeys.IndexOf(KeyToCheck)] = KeyState.Released;
+                    foreach (KeyboardButtonState key in ActiveKeys)
                     {
-                        if (Key.Button == KeyToCheck)
+                        if (key.Button == KeyToCheck)
                         {
-                            Key.ButtonState = KeyboardButtonState.KeyState.Released;
+                            key.ButtonState = KeyboardButtonState.KeyState.Released;
                         }
                     }
                 }
@@ -105,24 +104,23 @@
                 }
             }
 
-            //while (ActiveKeys.Contains(Keys.None))
-            //{
+            // while (ActiveKeys.Contains(Keys.None))
+            // {
             //    pressedKeysStates.RemoveAt(pressedKeys.IndexOf(Keys.None));
             //    pressedKeys.RemoveAt(pressedKeys.IndexOf(Keys.None));
-            //}
-
+            // }
             while (ActiveKeys.Contains(new KeyboardButtonState(Keys.None)))
             {
                 ActiveKeys.Remove(new KeyboardButtonState(Keys.None));
             }
 
-            //for (int i = 0; i < ActiveKeys.Count; i++)
-            //{
+            // for (int i = 0; i < ActiveKeys.Count; i++)
+            // {
             //    if (ActiveKeys[i].Button == Keys.None)
             //    {
             //
             //    }
-            //}
+            // }
         }
 
         private static void CheckButtonState(MouseState previousState, MouseState currentState)

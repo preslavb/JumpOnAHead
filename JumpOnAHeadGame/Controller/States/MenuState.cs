@@ -6,22 +6,23 @@
 
     public class MenuState : State
     {
-        private bool IsDone { get; set; }
-
         public MenuState(State nextState)
             : base(nextState)
         {
             this.NextState = nextState;
-            IsDone = false;
+            this.IsDone = false;
 
             this.SpritesInState.Add(UIInitializer.Background.Sprite);
             this.SpritesInState.Add(UIInitializer.StartButton.Sprite);
             this.SpritesInState.Add(UIInitializer.ExitButton.Sprite);
+            this.SpritesInState.Add(UIInitializer.TestButton.Sprite);
         }
+
+        private bool IsDone { get; set; }
 
         public override void Execute()
         {
-            if (!IsDone)
+            if (!this.IsDone)
             {
                 this.NextState = this;
 
@@ -36,9 +37,12 @@
                 {
                     UIInitializer.StartButton.ChangeToNormalImage();
                 }
+
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && mouseStartHover)
                 {
-                    IsDone = true;
+                    this.IsDone = true;
+                    SoundManager.Stop("GoT");
+
                     this.NextState = new UpdateState(this);
                 }
 
@@ -51,11 +55,12 @@
                 {
                     UIInitializer.ExitButton.ChangeToNormalImage();
                 }
+
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && mouseExitHover)
                 {
-                    IsDone = true;
+                    this.IsDone = true;
                     SoundManager.Stop("GoT");
-                    // TODO: EXIT
+                    //// TODO: EXIT
                     // using (var game = new Game1())
                     //     game.Exit();
                 }
@@ -66,6 +71,5 @@
         {
             renderer.DrawState(this.SpritesInState);
         }
-
     }
 }

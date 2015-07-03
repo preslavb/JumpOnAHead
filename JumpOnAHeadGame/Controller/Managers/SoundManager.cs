@@ -1,7 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Controller.Managers
 {
-    using Microsoft.Xna.Framework.Audio;
     using System.Collections.Generic;
+    using Microsoft.Xna.Framework.Audio;
 
     public static class SoundManager
     {
@@ -19,6 +19,7 @@
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
+
             helper[name].Play();
         }
 
@@ -28,6 +29,7 @@
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
+
             helper[name].Stop();
         }
 
@@ -37,6 +39,7 @@
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
+
             helper[name].Pause();
         }
 
@@ -46,6 +49,7 @@
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
+
             helper[name].Resume();
         }
 
