@@ -15,13 +15,15 @@
             this.IsDone = false;
 
             // Creating Background
-            this.SpritesInState.Add(UIInitializer.LevelBackground.Sprite);
+            this.SpritesInState.Add(UIInitializer.LevelBackground);
 
             // Creating players' Animation
             foreach (var playerUI in UIInitializer.ListOfPlayerUIs)
             {
                 this.SpritesInState.Add(playerUI.PlayerAnimation);
             }
+
+
         }
 
         private bool IsDone { get; set; }
@@ -31,6 +33,18 @@
             if (!this.IsDone)
             {
                 this.NextState = this;
+
+                // Creating blocks
+                foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
+                {
+                    if (!block.IsDrawn)
+                    {
+                        block.IsDrawn = true;
+                        block.Sprite.Position = block.Position;
+                        block.Bounds = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.Texture.Width, block.Sprite.Texture.Height);
+                        this.SpritesInState.Add(block.Sprite);
+                    }
+                }
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
@@ -48,28 +62,33 @@
                         Vector2 snowballPosition = new Vector2();
                         if (StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight)
                         {
-                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Right, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y);
+                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Right, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y + StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Height*0.2f);
                         }
                         else
                         {
-                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Left - 40, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y);
+                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Left - 40, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y + StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Height * 0.2f);
                         }
 
-                        Snowball newSnowball = new Snowball(snowballPosition, UIInitializer.CreateSnowball("Snowball", snowballPosition, 1f), StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight);
+                        Snowball newSnowball = new Snowball(snowballPosition, UIInitializer.CreateSprite("Snowball"), StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight);
                         StateMachine.CurrentLevel.ListOfSnowballs.Add(newSnowball);
                         this.SpritesInState.Add(newSnowball.Sprite);
-                    }
-
-                    // Collision with Snowballs
-                    for (int j = 0; j < StateMachine.CurrentLevel.ListOfSnowballs.Count; j++)
-                    {
-                        StateMachine.CurrentLevel.ListOfSnowballs[j].ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers[i]);
                     }
                 }
 
                 // Movement and Bounds of the Snowballs
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfSnowballs.Count; i++)
                 {
+                    // Collision
+                    for (int j = 0; j < StateMachine.CurrentLevel.ListOfPlayers.Count; j++)
+                    {
+                        StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers[j]);
+                    }
+                    for (int j = 0; j < StateMachine.CurrentLevel.ListOfBlocks.Count; j++)
+                    {
+                        StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnBlock(StateMachine.CurrentLevel.ListOfBlocks[j]);
+                    }
+
+                    // Movement and Destruction
                     if (!StateMachine.CurrentLevel.ListOfSnowballs[i].IsMelting)
                     {
                         StateMachine.CurrentLevel.ListOfSnowballs[i].Move();

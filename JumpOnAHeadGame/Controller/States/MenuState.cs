@@ -12,7 +12,7 @@
             this.NextState = nextState;
             this.IsDone = false;
 
-            this.SpritesInState.Add(UIInitializer.Background.Sprite);
+            this.SpritesInState.Add(UIInitializer.MenuBackground);
             this.SpritesInState.Add(UIInitializer.StartButton.Sprite);
             this.SpritesInState.Add(UIInitializer.ExitButton.Sprite);
             this.SpritesInState.Add(UIInitializer.TestButton.Sprite);

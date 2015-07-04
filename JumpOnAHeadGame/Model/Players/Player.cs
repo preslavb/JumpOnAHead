@@ -10,10 +10,10 @@
         private const float FRICTION_FORCE = 0.1f;
         private const float MAX_PLAYER_SPEED = 10;
         private const float PLAYER_ACCELERATION = 0.1f;
-        private const int LEFT_BOUND = -40;
-        private const int RIGHT_BOUND = 1240;
+        private const int LEFT_BOUND = 0;
+        private const int RIGHT_BOUND = 1280;
         private const float FALL_VELOCITY = 7;
-        private const float JUMP_RANGE = 360;
+        private const float JUMP_RANGE = 400;
         private const float JUMP_SPEED = 15;
 
         public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position)
@@ -107,13 +107,13 @@
             }
 
             // Should do a check for collision
-            if (this.Bounds.Right + this.Acceleration.X < LEFT_BOUND)
+            if ((this.Bounds.Left + (this.Bounds.Width / 2)) + this.Acceleration.X < LEFT_BOUND)
             {
-                this.Position = new Vector2(RIGHT_BOUND, this.Position.Y);
+                this.Position = new Vector2((RIGHT_BOUND-(this.Bounds.Width / 2)), this.Position.Y);
             }
-            else if (this.Position.X + this.Acceleration.X > RIGHT_BOUND)
+            else if ((this.Bounds.Right - (this.Bounds.Width/2)) + this.Acceleration.X > RIGHT_BOUND)
             {
-                this.Position = new Vector2(LEFT_BOUND, this.Position.Y);
+                this.Position = new Vector2((LEFT_BOUND-(this.Bounds.Width / 2)), this.Position.Y);
             }
             else
             {
