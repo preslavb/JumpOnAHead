@@ -8,8 +8,8 @@
     {
         private const int LEFT_BOUND = -40;
         private const int RIGHT_BOUND = 1240;
-        private const float FALL_VELOCITY = 0.8f;
-        private const float BALL_SPEED = 8;
+        private const float FALL_VELOCITY = 0.5f;
+        private const float BALL_SPEED = 15;
 
         public Snowball(Vector2 position, Sprite sprite, bool isGoingRight)
         {
@@ -59,6 +59,14 @@
                 this.Position = new Vector2(this.Position.X, this.Position.Y + FALL_VELOCITY);
             }
             else
+            {
+                this.IsMelting = true;
+            }
+        }
+
+        public void ActOnPlayer(Player player)
+        {
+            if (this.Bounds.Intersects(player.Bounds))
             {
                 this.IsMelting = true;
             }

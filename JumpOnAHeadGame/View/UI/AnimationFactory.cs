@@ -7,7 +7,7 @@
 
     public static class AnimationFactory
     {
-        public static Animation CreatePlayerAnimation()
+        public static Animation CreatePlayerAnimation(Color tint)
         {
             Animation currentAnimation = new Animation(new Vector2(96, 135), Globals.Content.Load<Texture2D>("PlayerSpriteSheet"), 60);
             currentAnimation.AnimationStates = new List<AnimationState>();
@@ -15,7 +15,7 @@
             currentAnimation.AnimationStates.Add(new AnimationState("Running", new Vector2(96, 135), 12, 1));
             currentAnimation.AnimationStates.Add(new AnimationState("Idle", new Vector2(96, 135), 4, 2));
 
-            currentAnimation.Tint = Color.White;
+            currentAnimation.Tint = tint;
             currentAnimation.ChangeAnimation("Idle");
             return currentAnimation;
         }

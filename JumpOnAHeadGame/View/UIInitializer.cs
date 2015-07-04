@@ -1,5 +1,6 @@
 ﻿namespace JumpOnAHeadGame.View
 {
+    using System.Collections.Generic;
     using JumpOnAHeadGame.Controller;
     using JumpOnAHeadGame.View.UI;
     using JumpOnAHeadGame.View.UI.Models;
@@ -9,8 +10,10 @@
 
     public static class UIInitializer
     {
-        public static PlayerUI PlayerUI1 = new PlayerUI(AnimationFactory.CreatePlayerAnimation());
-        public static PlayerUI PlayerUI2 = new PlayerUI(AnimationFactory.CreatePlayerAnimation());
+        public static PlayerUI PlayerUI1 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.White));
+        public static PlayerUI PlayerUI2 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.Aquamarine));
+
+        public static List<PlayerUI> ListOfPlayerUIs = new List<PlayerUI> { PlayerUI1, PlayerUI2 };
 
         public static SplashScreenUI SplashScreen = new SplashScreenUI(AnimationFactory.CreateSplashScreen());
 
@@ -43,14 +46,23 @@
             return background;
         }
 
-        public static Tile CreateTile(string fileName, Vector2 position, float scale)
+      //  public static Tile CreateTile(string fileName, Vector2 position, float scale)
+      //  {
+      //      Texture2D tileTexture = Globals.Content.Load<Texture2D>(fileName);
+      //
+      //      Sprite tileSprite = new Sprite(tileTexture, position, scale);
+      //      Tile tile = new Tile(tileSprite);
+      //
+      //      return tile;
+      //  }
+
+        public static Sprite CreateSnowball(string fileName, Vector2 position, float scale)
         {
             Texture2D tileTexture = Globals.Content.Load<Texture2D>(fileName);
-
+      
             Sprite tileSprite = new Sprite(tileTexture, position, scale);
-            Tile tile = new Tile(tileSprite);
-
-            return tile;
+     
+            return tileSprite;
         }
     }
 }
