@@ -20,12 +20,5 @@
         public Sprite Sprite { get; set; }
 
         public bool IsDrawn { get; set; }
-
-        public void ActOnPlayer(Player player)
-        {
-            // if (this.Bounds.Intersects(player.Bounds))
-            // {
-            // }
-        }
     }
 }

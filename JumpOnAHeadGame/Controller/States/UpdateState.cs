@@ -22,8 +22,6 @@
             {
                 this.SpritesInState.Add(playerUI.PlayerAnimation);
             }
-
-
         }
 
         private bool IsDone { get; set; }
@@ -49,7 +47,7 @@
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
                     // Base Movement, Animation and Bounds
-                    StateMachine.CurrentLevel.ListOfPlayers[i].Move();
+                    StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfBlocks);
                     UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.Position = StateMachine.CurrentLevel.ListOfPlayers[i].Position;
                     UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.IsFacingRight = StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight;
                     StateMachine.CurrentLevel.ListOfPlayers[i].Bounds = new Rectangle((int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.X, (int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y, UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.SourceRectangle.Width, UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.SourceRectangle.Height);
@@ -62,11 +60,11 @@
                         Vector2 snowballPosition = new Vector2();
                         if (StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight)
                         {
-                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Right, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y + StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Height*0.2f);
+                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Right, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y + (StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Height * 0.2f));
                         }
                         else
                         {
-                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Left - 40, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y + StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Height * 0.2f);
+                            snowballPosition = new Vector2(StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Left - 40, StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y + (StateMachine.CurrentLevel.ListOfPlayers[i].Bounds.Height * 0.2f));
                         }
 
                         Snowball newSnowball = new Snowball(snowballPosition, UIInitializer.CreateSprite("Snowball"), StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight);
@@ -83,6 +81,7 @@
                     {
                         StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers[j]);
                     }
+
                     for (int j = 0; j < StateMachine.CurrentLevel.ListOfBlocks.Count; j++)
                     {
                         StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnBlock(StateMachine.CurrentLevel.ListOfBlocks[j]);

@@ -24,7 +24,7 @@
         public static Button ExitButton = CreateButton("ExitNormal", "ExitHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 200) / 2, 775));
         public static Button TestButton = CreateButton("StartNormal", "StartHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 200) / 2, 375));
 
-        // public static Tile IceTile1 = CreateTile("IceTile", new Vector2(150, 50),0.2f);
+        //// public static Tile IceTile1 = CreateTile("IceTile", new Vector2(150, 50),0.2f);
 
         public static Button CreateButton(string buttonNormal, string buttonHover, Vector2 position)
         {

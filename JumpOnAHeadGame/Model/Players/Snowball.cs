@@ -45,11 +45,11 @@
             {
                 if ((this.Bounds.Left + (this.Bounds.Width / 2)) + ballSpeed < LEFT_BOUND)
                 {
-                    this.Position = new Vector2((RIGHT_BOUND - (this.Bounds.Width / 2)), this.Position.Y);
+                    this.Position = new Vector2(RIGHT_BOUND - (this.Bounds.Width / 2), this.Position.Y);
                 }
                 else if ((this.Bounds.Right - (this.Bounds.Width / 2)) + ballSpeed > RIGHT_BOUND)
                 {
-                    this.Position = new Vector2((LEFT_BOUND - (this.Bounds.Width / 2)), this.Position.Y);
+                    this.Position = new Vector2(LEFT_BOUND - (this.Bounds.Width / 2), this.Position.Y);
                 }
                 else
                 {

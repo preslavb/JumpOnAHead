@@ -14,7 +14,7 @@
         private const int RIGHT_BOUND = 1280;
         private const float FALL_VELOCITY = 7;
         private const float JUMP_RANGE = 400;
-        private const float JUMP_SPEED = 15;
+        private const float JUMP_SPEED = 18;
 
         public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position)
         {
@@ -45,12 +45,37 @@
 
         public float JumpHeight { get; set; }
 
-        public void Move()
+        public void Move(List<Block> blocks)
         {
             this.State = "Idle";
 
-            this.JumpAndFall();
+            // Jumping
+            if (this.JumpHeight > 0)
+            {
+                this.JumpHeight -= JUMP_SPEED;
+                this.Position = new Vector2(this.Position.X, this.Position.Y - JUMP_SPEED);
+                foreach (var block in blocks)
+                {
+                    if (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Bottom)
+                    {
+                        this.JumpHeight = 0;
+                    }
+                }
+            }
 
+            // Falling
+            float fall_velocity = FALL_VELOCITY;
+            foreach (var block in blocks)
+            {
+                if (this.Position.Y + FALL_VELOCITY > 800 || (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Top && this.Bounds.Bottom >= block.Bounds.Top && this.Bounds.Top <= block.Bounds.Bottom && this.Bounds.Bottom <= block.Bounds.Bottom))
+                {
+                    fall_velocity = 0;
+                }
+            }
+
+            this.Position = new Vector2(this.Position.X, this.Position.Y + fall_velocity);
+
+            // Moving
             if (Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) || Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]) || Keyboard.GetState().IsKeyDown(this.Controls["Jump"]) || Keyboard.GetState().IsKeyDown(this.Controls["Dash"]))
             {
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
@@ -66,6 +91,18 @@
                         if (this.Acceleration.X > -MAX_PLAYER_SPEED)
                         {
                             this.Acceleration = new Vector2(this.Acceleration.X - PLAYER_ACCELERATION, this.Acceleration.Y);
+                            foreach (var block in blocks)
+                            {
+                                if (this.Bounds.Intersects(block.Bounds) && 
+                                    this.Bounds.Left >= block.Bounds.Left && 
+                                    this.Bounds.Left <= block.Bounds.Right && 
+                                    this.Bounds.Right >= block.Bounds.Right && 
+                                    this.Bounds.Right >= block.Bounds.Left && 
+                                    this.Bounds.Bottom >= block.Bounds.Bottom)
+                                {
+                                    this.Acceleration = new Vector2(0, this.Acceleration.Y);
+                                }
+                            }
                         }
                     }
 
@@ -80,15 +117,29 @@
                         if (this.Acceleration.X < MAX_PLAYER_SPEED)
                         {
                             this.Acceleration = new Vector2(this.Acceleration.X + PLAYER_ACCELERATION, this.Acceleration.Y);
+                            foreach (var block in blocks)
+                            {
+                                if (this.Bounds.Intersects(block.Bounds) && 
+                                    this.Bounds.Left <= block.Bounds.Left && 
+                                    this.Bounds.Left <= block.Bounds.Right && 
+                                    this.Bounds.Right <= block.Bounds.Right && 
+                                    this.Bounds.Right >= block.Bounds.Left && 
+                                    this.Bounds.Bottom >= block.Bounds.Bottom)
+                                {
+                                    this.Acceleration = new Vector2(0, this.Acceleration.Y);
+                                }
+                            }
                         }
                     }
 
                     if (key.Button == this.Controls["Jump"] && key.ButtonState == KeyboardButtonState.KeyState.Held)
                     {
-                        // TODO: FIX
-                        if (this.Position.Y >= 790)
+                        foreach (var block in blocks)
                         {
-                            this.JumpHeight = JUMP_RANGE;
+                            if (this.Position.Y + FALL_VELOCITY > 800 || (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Top && this.Bounds.Bottom >= block.Bounds.Top && this.Bounds.Top <= block.Bounds.Bottom && this.Bounds.Bottom <= block.Bounds.Bottom))
+                            {
+                                this.JumpHeight = JUMP_RANGE;
+                            }
                         }
 
                         this.FixAcceleration();
@@ -109,11 +160,11 @@
             // Should do a check for collision
             if ((this.Bounds.Left + (this.Bounds.Width / 2)) + this.Acceleration.X < LEFT_BOUND)
             {
-                this.Position = new Vector2((RIGHT_BOUND-(this.Bounds.Width / 2)), this.Position.Y);
+                this.Position = new Vector2(RIGHT_BOUND - (this.Bounds.Width / 2), this.Position.Y);
             }
-            else if ((this.Bounds.Right - (this.Bounds.Width/2)) + this.Acceleration.X > RIGHT_BOUND)
+            else if ((this.Bounds.Right - (this.Bounds.Width / 2)) + this.Acceleration.X > RIGHT_BOUND)
             {
-                this.Position = new Vector2((LEFT_BOUND-(this.Bounds.Width / 2)), this.Position.Y);
+                this.Position = new Vector2(LEFT_BOUND - (this.Bounds.Width / 2), this.Position.Y);
             }
             else
             {
@@ -136,20 +187,6 @@
             else
             {
                 this.Acceleration = new Vector2(0, this.Acceleration.Y);
-            }
-        }
-
-        private void JumpAndFall()
-        {
-            if (this.JumpHeight > 0)
-            {
-                this.Position = new Vector2(this.Position.X, this.Position.Y - JUMP_SPEED);
-                this.JumpHeight -= JUMP_SPEED;
-            }
-
-            if (this.Position.Y + FALL_VELOCITY < 800)
-            {
-                this.Position = new Vector2(this.Position.X, this.Position.Y + FALL_VELOCITY);
             }
         }
     }
