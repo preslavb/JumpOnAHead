@@ -9,11 +9,11 @@
     {
         public static Animation CreatePlayerAnimation(Color tint)
         {
-            Animation currentAnimation = new Animation(new Vector2(96, 135), Globals.Content.Load<Texture2D>("PlayerSpriteSheet"), 60);
+            Animation currentAnimation = new Animation(new Vector2(71, 120), Globals.Content.Load<Texture2D>("PlayerSpriteSheet"), 60);
             currentAnimation.AnimationStates = new List<AnimationState>();
-            currentAnimation.AnimationStates.Add(new AnimationState("Walking", new Vector2(96, 135), 9, 0));
-            currentAnimation.AnimationStates.Add(new AnimationState("Running", new Vector2(96, 135), 12, 1));
-            currentAnimation.AnimationStates.Add(new AnimationState("Idle", new Vector2(96, 135), 4, 2));
+            currentAnimation.AnimationStates.Add(new AnimationState("Walking", new Vector2(71, 120), 9, 0));
+            currentAnimation.AnimationStates.Add(new AnimationState("Running", new Vector2(71, 120), 12, 1));
+            currentAnimation.AnimationStates.Add(new AnimationState("Idle", new Vector2(71, 120), 4, 2));
 
             currentAnimation.Tint = tint;
             currentAnimation.ChangeAnimation("Idle");
