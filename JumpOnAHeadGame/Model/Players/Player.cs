@@ -60,7 +60,7 @@
             {
                 foreach (var block in blocks)
                 {
-                    Rectangle tempRect = new Rectangle((int)(this.Bounds.X + this.Acceleration.X), (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
+                    Rectangle tempRect = new Rectangle((int)(this.Bounds.X), (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
                     if (tempRect.Intersects(block.Bounds))
                     {
                         this.JumpHeight = 0;
@@ -77,7 +77,7 @@
             this.IsGrounded = false;
             foreach (var block in blocks)
             {
-                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + this.Acceleration.X), (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
+                Rectangle tempRect = new Rectangle((int)(this.Bounds.X), (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
                 if (tempRect.Intersects(block.Bounds))
                 {
                     this.IsGrounded = true;
@@ -158,8 +158,17 @@
             }
             else
             {
-                // PROBLEM SOMEWHERE HERE
-                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + this.Acceleration.X), (int)(this.Bounds.Y), this.Bounds.Width, this.Bounds.Height);
+                // Hack
+                int tempDistance = 0;
+                if (this.Acceleration.X > 0)
+                {
+                    tempDistance = 1;
+                }
+                else
+                {
+                    tempDistance = -1;
+                }
+                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + (this.Acceleration.X + tempDistance)), (int)(this.Bounds.Y), this.Bounds.Width, this.Bounds.Height);
                 foreach (var block in blocks)
                 {
                     if (tempRect.Intersects(block.Bounds))

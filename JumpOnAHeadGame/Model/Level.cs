@@ -91,8 +91,6 @@
             new Block(new Vector2(1240, 400), UIInitializer.CreateSprite("IceCube")),
             new Block(new Vector2(1240, 450), UIInitializer.CreateSprite("IceCube")),
             new Block(new Vector2(1240, 500), UIInitializer.CreateSprite("IceCube")),
-
-            new Block(new Vector2(500, 850), UIInitializer.CreateSprite("IceCube")),
         };
     }
 }
