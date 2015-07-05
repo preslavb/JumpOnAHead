@@ -28,6 +28,7 @@
             this.Controls.Add("Dash", dash);
             this.Position = position;
             this.Health = 300;
+            this.IsGrounded = false;
         }
 
         public Vector2 Position { get; set; }
@@ -44,6 +45,8 @@
 
         public bool IsShooting { get; set; }
 
+        public bool IsGrounded { get; set; }
+
         public float JumpHeight { get; set; }
 
         public int Health { get; set; }
@@ -55,28 +58,35 @@
             // Jumping
             if (this.JumpHeight > 0)
             {
-                this.JumpHeight -= JUMP_SPEED;
-                this.Position = new Vector2(this.Position.X, this.Position.Y - JUMP_SPEED);
                 foreach (var block in blocks)
                 {
-                    if (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Bottom)
+                    Rectangle tempRect = new Rectangle((int)(this.Bounds.X + this.Acceleration.X), (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
+                    if (tempRect.Intersects(block.Bounds))
                     {
                         this.JumpHeight = 0;
                     }
                 }
-            }
-
-            // Falling
-            float fall_velocity = FALL_VELOCITY;
-            foreach (var block in blocks)
-            {
-                if (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Top && this.Bounds.Bottom >= block.Bounds.Top && this.Bounds.Top <= block.Bounds.Bottom && this.Bounds.Bottom <= block.Bounds.Bottom)
+                if (this.JumpHeight != 0)
                 {
-                    fall_velocity = 0;
+                    this.Position = new Vector2(this.Position.X, this.Position.Y - JUMP_SPEED);
+                    this.JumpHeight -= JUMP_SPEED;
                 }
             }
 
-            this.Position = new Vector2(this.Position.X, this.Position.Y + fall_velocity);
+            // Falling
+            this.IsGrounded = false;
+            foreach (var block in blocks)
+            {
+                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + this.Acceleration.X), (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
+                if (tempRect.Intersects(block.Bounds))
+                {
+                    this.IsGrounded = true;
+                }
+            }
+            if (!this.IsGrounded)
+            {
+                this.Position = new Vector2(this.Position.X, this.Position.Y + FALL_VELOCITY);
+            }
 
             // Moving
             if (Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) || Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]) || Keyboard.GetState().IsKeyDown(this.Controls["Jump"]) || Keyboard.GetState().IsKeyDown(this.Controls["Dash"]))
@@ -94,18 +104,6 @@
                         if (this.Acceleration.X > -MAX_PLAYER_SPEED)
                         {
                             this.Acceleration = new Vector2(this.Acceleration.X - PLAYER_ACCELERATION, this.Acceleration.Y);
-                            foreach (var block in blocks)
-                            {
-                                if (this.Bounds.Intersects(block.Bounds) && 
-                                    this.Bounds.Left >= block.Bounds.Left && 
-                                    this.Bounds.Left <= block.Bounds.Right && 
-                                    this.Bounds.Right >= block.Bounds.Right && 
-                                    this.Bounds.Right >= block.Bounds.Left && 
-                                    this.Bounds.Bottom >= block.Bounds.Bottom)
-                                {
-                                    this.Acceleration = new Vector2(0, this.Acceleration.Y);
-                                }
-                            }
                         }
                     }
 
@@ -120,18 +118,6 @@
                         if (this.Acceleration.X < MAX_PLAYER_SPEED)
                         {
                             this.Acceleration = new Vector2(this.Acceleration.X + PLAYER_ACCELERATION, this.Acceleration.Y);
-                            foreach (var block in blocks)
-                            {
-                                if (this.Bounds.Intersects(block.Bounds) && 
-                                    this.Bounds.Left <= block.Bounds.Left && 
-                                    this.Bounds.Left <= block.Bounds.Right && 
-                                    this.Bounds.Right <= block.Bounds.Right && 
-                                    this.Bounds.Right >= block.Bounds.Left && 
-                                    this.Bounds.Bottom >= block.Bounds.Bottom)
-                                {
-                                    this.Acceleration = new Vector2(0, this.Acceleration.Y);
-                                }
-                            }
                         }
                     }
 
@@ -139,8 +125,9 @@
                     {
                         foreach (var block in blocks)
                         {
-                            if (this.Position.Y + FALL_VELOCITY > 800 || (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Top && this.Bounds.Bottom >= block.Bounds.Top && this.Bounds.Top <= block.Bounds.Bottom && this.Bounds.Bottom <= block.Bounds.Bottom))
+                            if (this.IsGrounded)
                             {
+                                this.IsGrounded = false;
                                 this.JumpHeight = JUMP_RANGE;
                             }
                         }
@@ -171,6 +158,15 @@
             }
             else
             {
+                // PROBLEM SOMEWHERE HERE
+                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + this.Acceleration.X), (int)(this.Bounds.Y), this.Bounds.Width, this.Bounds.Height);
+                foreach (var block in blocks)
+                {
+                    if (tempRect.Intersects(block.Bounds))
+                    {
+                        this.Acceleration = new Vector2(0, 0);
+                    }
+                }
                 this.Position += this.Acceleration;
             }
         }
