@@ -25,22 +25,22 @@
 
             //// Creating names and healthbars
             // Player 1
-            UIInitializer.Player1Name.Position = new Vector2(0, 0);
+            UIInitializer.Player1Name.Position = new Vector2(20, 0);
             this.SpritesInState.Add(UIInitializer.Player1Name);
 
-            UIInitializer.HealthbarEmptyPlayer1.Position = new Vector2(150, 0);
+            UIInitializer.HealthbarEmptyPlayer1.Position = new Vector2(175, 5);
             this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer1); 
 
-            UIInitializer.HealthbarFullPlayer1.Position = new Vector2(150, 0);
+            UIInitializer.HealthbarFullPlayer1.Position = new Vector2(180, 10);
             this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer1);
             // Player 2
-            UIInitializer.Player2Name.Position = new Vector2(830, 0);
+            UIInitializer.Player2Name.Position = new Vector2(790, 0);
             this.SpritesInState.Add(UIInitializer.Player2Name);
 
-            UIInitializer.HealthbarEmptyPlayer2.Position = new Vector2(980, 0);
+            UIInitializer.HealthbarEmptyPlayer2.Position = new Vector2(945, 5);
             this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer2);
 
-            UIInitializer.HealthbarFullPlayer2.Position = new Vector2(980, 0);
+            UIInitializer.HealthbarFullPlayer2.Position = new Vector2(950, 10);
             this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer2);
         }
 
