@@ -67,7 +67,7 @@
             float fall_velocity = FALL_VELOCITY;
             foreach (var block in blocks)
             {
-                if (this.Position.Y + FALL_VELOCITY > 800 || (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Top && this.Bounds.Bottom >= block.Bounds.Top && this.Bounds.Top <= block.Bounds.Bottom && this.Bounds.Bottom <= block.Bounds.Bottom))
+                if (this.Bounds.Intersects(block.Bounds) && this.Bounds.Top <= block.Bounds.Top && this.Bounds.Bottom >= block.Bounds.Top && this.Bounds.Top <= block.Bounds.Bottom && this.Bounds.Bottom <= block.Bounds.Bottom)
                 {
                     fall_velocity = 0;
                 }
