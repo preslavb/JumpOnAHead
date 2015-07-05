@@ -22,6 +22,26 @@
             {
                 this.SpritesInState.Add(playerUI.PlayerAnimation);
             }
+
+            //// Creating names and healthbars
+            // Player 1
+            UIInitializer.Player1Name.Position = new Vector2(0, 0);
+            this.SpritesInState.Add(UIInitializer.Player1Name);
+
+            UIInitializer.HealthbarEmptyPlayer1.Position = new Vector2(150, 0);
+            this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer1); 
+
+            UIInitializer.HealthbarFullPlayer1.Position = new Vector2(150, 0);
+            this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer1);
+            // Player 2
+            UIInitializer.Player2Name.Position = new Vector2(830, 0);
+            this.SpritesInState.Add(UIInitializer.Player2Name);
+
+            UIInitializer.HealthbarEmptyPlayer2.Position = new Vector2(980, 0);
+            this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer2);
+
+            UIInitializer.HealthbarFullPlayer2.Position = new Vector2(980, 0);
+            this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer2);
         }
 
         private bool IsDone { get; set; }
@@ -46,6 +66,9 @@
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
+                    // Adjusting Healthbars
+                    UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
+
                     // Base Movement, Animation and Bounds
                     StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfBlocks);
                     UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.Position = StateMachine.CurrentLevel.ListOfPlayers[i].Position;

@@ -10,8 +10,8 @@
 
     public static class UIInitializer
     {
-        public static PlayerUI PlayerUI1 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.White));
-        public static PlayerUI PlayerUI2 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.Aquamarine));
+        public static PlayerUI PlayerUI1 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.Aquamarine));
+        public static PlayerUI PlayerUI2 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.Peru));
 
         public static List<PlayerUI> ListOfPlayerUIs = new List<PlayerUI> { PlayerUI1, PlayerUI2 };
 
@@ -19,6 +19,17 @@
 
         public static Sprite MenuBackground = CreateSprite("MenuBackground");
         public static Sprite LevelBackground = CreateSprite("LevelBackground");
+
+        public static Sprite Player1Name = CreateSprite("Player1");
+        public static Sprite Player2Name = CreateSprite("Player2");
+
+        public static Sprite HealthbarEmptyPlayer1 = CreateSprite("HealthBarEmpty");
+        public static Sprite HealthbarEmptyPlayer2 = CreateSprite("HealthBarEmpty");
+
+        public static Sprite HealthbarFullPlayer1 = CreateSprite("HealthBarFull");
+        public static Sprite HealthbarFullPlayer2 = CreateSprite("HealthBarFull");
+
+        public static List<Sprite> ListOfHealthbars = new List<Sprite> { HealthbarFullPlayer1, HealthbarFullPlayer2 };
 
         public static Button StartButton = CreateButton("StartNormal", "StartHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 275));
         public static Button ExitButton = CreateButton("ExitNormal", "ExitHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 775));

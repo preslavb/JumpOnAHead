@@ -69,6 +69,7 @@
             if (this.Bounds.Intersects(player.Bounds))
             {
                 this.IsMelting = true;
+                player.Health -= 30;
             }
         }
 

@@ -27,6 +27,7 @@
             this.Controls.Add("Jump", jump);
             this.Controls.Add("Dash", dash);
             this.Position = position;
+            this.Health = 300;
         }
 
         public Vector2 Position { get; set; }
@@ -44,6 +45,8 @@
         public bool IsShooting { get; set; }
 
         public float JumpHeight { get; set; }
+
+        public int Health { get; set; }
 
         public void Move(List<Block> blocks)
         {
