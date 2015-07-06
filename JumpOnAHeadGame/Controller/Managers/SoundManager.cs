@@ -25,6 +25,7 @@
             SoundEffect snowballHit = Globals.Content.Load<SoundEffect>("SnowImpactOnBlock");
             SoundEffect snowballHitBlock = Globals.Content.Load<SoundEffect>("SnowballHit");
             SoundEffect menuMoveSound = Globals.Content.Load<SoundEffect>("MenuMoveSound");
+            SoundEffect errorSound = Globals.Content.Load<SoundEffect>("ErrorSound");
             Add("MenuSound", menuSound);
             Add("Sound1", sound1);
             Add("Sound2", sound2);
@@ -35,6 +36,7 @@
             Add("SnowballHit", snowballHit);
             Add("SnowballHitBlock", snowballHitBlock);
             Add("MenuMove", menuMoveSound);
+            Add("ErrorSound", errorSound);
         }
 
         public static void Play(string name)

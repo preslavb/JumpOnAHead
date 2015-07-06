@@ -414,3 +414,9 @@
 /processorParam:TextureFormat=Color
 /build:Level3Background.jpg
 
+#begin ErrorSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:ErrorSound.wav
+

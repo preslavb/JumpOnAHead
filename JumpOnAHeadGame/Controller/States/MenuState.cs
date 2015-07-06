@@ -112,6 +112,7 @@
                         UIInitializer.CreditsButton.ChangeToHoverImage();
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
+                            SoundManager.Play("ErrorSound", 1.0f);
                         }
 
                         break;
