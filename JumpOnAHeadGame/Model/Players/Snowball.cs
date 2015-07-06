@@ -79,6 +79,7 @@
         {
             if (this.Bounds.Intersects(block.Bounds))
             {
+                SoundManager.Play("SnowballHitBlock", false);
                 this.IsMelting = true;
             }
         }

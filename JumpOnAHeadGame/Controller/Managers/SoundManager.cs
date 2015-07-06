@@ -24,6 +24,7 @@
             SoundEffect sound5 = Globals.Content.Load<SoundEffect>("Sound5");
             SoundEffect sound6 = Globals.Content.Load<SoundEffect>("Sound6");
             SoundEffect snowballHit = Globals.Content.Load<SoundEffect>("SnowballHit");
+            SoundEffect snowballHitBlock = Globals.Content.Load<SoundEffect>("SnowImpactOnBlock");
             Add("MenuSound", menuSound);
             Add("Sound1", sound1);
             Add("Sound2", sound2);
@@ -32,6 +33,7 @@
             Add("Sound5", sound5);
             Add("Sound6", sound6);
             Add("SnowballHit", snowballHit);
+            Add("SnowballHitBlock", snowballHitBlock);
         }
 
         public static void Play(string name, bool isLooped)
