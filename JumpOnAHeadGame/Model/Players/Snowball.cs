@@ -1,5 +1,6 @@
 ﻿namespace JumpOnAHeadGame.Model.Players
 {
+    using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
@@ -68,6 +69,7 @@
         {
             if (this.Bounds.Intersects(player.Bounds))
             {
+                SoundManager.Play("SnowballHit");
                 this.IsMelting = true;
                 player.Health -= 10;
             }

@@ -1,6 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Controller
 {
     using JumpOnAHeadGame.Controller.Managers;
+    using JumpOnAHeadGame.Controller.States;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -8,10 +9,13 @@
 
     public class Game1 : Game
     {
+        public static Game1 self;
         private MonoGameRenderer renderer;
 
         public Game1()
         {
+            self = this;
+
             Globals.Graphics = new GraphicsDeviceManager(this);
             Globals.Content = this.Content;
             Globals.Content.RootDirectory = "Content";
@@ -53,7 +57,7 @@
             Globals.GameTime = gameTime;
             InputHandler.Update();
             StateMachine.Update();
-
+            
             base.Update(gameTime);
         }
 

@@ -2,6 +2,7 @@
 {
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
+    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
     using System;
 
@@ -64,9 +65,9 @@
                 {
                     this.IsDone = true;
                     SoundManager.Stop("MenuSound");
-                    //// TODO: EXIT
-                    // using (var game = new Game1())
-                    // game.Exit();
+                    // TODO: EXIT
+                    Game1.self.Exit();
+                    
                 }
             }
         }
