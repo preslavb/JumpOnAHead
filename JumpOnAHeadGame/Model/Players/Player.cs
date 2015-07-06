@@ -27,7 +27,7 @@
             this.Controls.Add("Jump", jump);
             this.Controls.Add("Dash", dash);
             this.Position = position;
-            this.Health = 300;
+            this.Health = 100;
             this.IsGrounded = false;
         }
 
@@ -158,16 +158,7 @@
             }
             else
             {
-                // Hack
-                int tempDistance = 0;
-                if (this.Acceleration.X > 0)
-                {
-                    tempDistance = 1;
-                }
-                else
-                {
-                    tempDistance = -1;
-                }
+                int tempDistance = this.Acceleration.X > 0 ? 1 : -1; // hack
                 Rectangle tempRect = new Rectangle((int)(this.Bounds.X + (this.Acceleration.X + tempDistance)), (int)(this.Bounds.Y), this.Bounds.Width, this.Bounds.Height);
                 foreach (var block in blocks)
                 {

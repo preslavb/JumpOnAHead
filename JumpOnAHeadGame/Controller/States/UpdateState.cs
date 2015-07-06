@@ -67,7 +67,7 @@
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
                     // Adjusting Healthbars
-                    UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
+                    UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3*StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
 
                     // Base Movement, Animation and Bounds
                     StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfBlocks);
@@ -132,6 +132,7 @@
 
         public override void Draw(AbstractRenderer renderer)
         {
+
             renderer.DrawState(this.SpritesInState);
             //// foreach (KeyboardButtonState Key in InputHandler.ActiveKeys)
             // {
