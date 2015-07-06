@@ -27,6 +27,7 @@
 
             CurrentState = InitialState;
             CurrentLevel = new Level();
+            CurrentLevel.Initialize();
         }
 
         public static void Update()

@@ -16,10 +16,10 @@
         private const float JUMP_RANGE = 400;
         private const float JUMP_SPEED = 18;
 
-        public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position)
+        public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position, bool isFacingRight)
         {
             this.State = "Idle";
-            this.IsFacingRight = true;
+            this.IsFacingRight = isFacingRight;
             this.JumpHeight = 0;
             this.Controls = new Dictionary<string, Keys>();
             this.Controls.Add("Move Left", moveLeft);
@@ -138,7 +138,6 @@
                     if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.IsShooting = true;
-                        this.FixAcceleration();
                     }
                 }
             }

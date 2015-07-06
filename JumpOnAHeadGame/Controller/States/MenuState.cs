@@ -15,8 +15,9 @@
 
             this.SpritesInState.Add(UIInitializer.MenuBackground);
             this.SpritesInState.Add(UIInitializer.StartButton.Sprite);
+            this.SpritesInState.Add(UIInitializer.OptionsButton.Sprite);
+            this.SpritesInState.Add(UIInitializer.CreditsButton.Sprite);
             this.SpritesInState.Add(UIInitializer.ExitButton.Sprite);
-            this.SpritesInState.Add(UIInitializer.TestButton.Sprite);
         }
 
         private bool IsDone { get; set; }
@@ -45,6 +46,8 @@
                     SoundManager.Stop("MenuSound");
                     SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
                     this.NextState = new UpdateState(this);
+
+                    StateMachine.CurrentLevel.Initialize();
                 }
 
                 bool mouseExitHover = UIInitializer.ExitButton.Sprite.CollisionRectangle.Contains(Mouse.GetState().X, Mouse.GetState().Y);
@@ -63,7 +66,7 @@
                     SoundManager.Stop("MenuSound");
                     //// TODO: EXIT
                     // using (var game = new Game1())
-                    //     game.Exit();
+                    // game.Exit();
                 }
             }
         }

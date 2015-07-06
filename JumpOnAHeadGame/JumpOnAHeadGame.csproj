@@ -48,6 +48,7 @@
     <Compile Include="Controller\Managers\KeyboardButtonState.cs" />
     <Compile Include="Controller\Managers\SoundManager.cs" />
     <Compile Include="Controller\StateMachine.cs" />
+    <Compile Include="Controller\States\GameOverState.cs" />
     <Compile Include="Controller\States\InitialState.cs" />
     <Compile Include="Controller\States\MenuState.cs" />
     <Compile Include="Controller\States\State.cs" />
