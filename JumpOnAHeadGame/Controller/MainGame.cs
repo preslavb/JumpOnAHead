@@ -26,13 +26,6 @@
             // For Later
             // Globals.Graphics.IsFullScreen = true;
 
-            // SoundTest
-            SoundEffect test = Content.Load<SoundEffect>("GoT");
-            SoundManager.Add("GoT", test);
-            SoundManager.Play("GoT");
-            SoundManager.Pause("GoT");
-            SoundManager.Resume("GoT");
-            SoundManager.Stop("GoT");
         }
 
         protected override void Initialize()
@@ -47,6 +40,7 @@
         protected override void LoadContent()
         {
             Globals.SpriteBatch = new SpriteBatch(GraphicsDevice);
+            SoundManager.LoadContent();
         }
 
         protected override void UnloadContent()

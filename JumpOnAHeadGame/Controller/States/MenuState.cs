@@ -3,6 +3,7 @@
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework.Input;
+    using System;
 
     public class MenuState : State
     {
@@ -26,7 +27,7 @@
             {
                 this.NextState = this;
 
-                SoundManager.Play("GoT");
+                SoundManager.Play("MenuSound");
 
                 bool mouseStartHover = UIInitializer.StartButton.Sprite.CollisionRectangle.Contains(Mouse.GetState().X, Mouse.GetState().Y);
                 if (mouseStartHover)
@@ -41,8 +42,8 @@
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && mouseStartHover)
                 {
                     this.IsDone = true;
-                    SoundManager.Stop("GoT");
-
+                    SoundManager.Stop("MenuSound");
+                    SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
                     this.NextState = new UpdateState(this);
                 }
 
@@ -59,7 +60,7 @@
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && mouseExitHover)
                 {
                     this.IsDone = true;
-                    SoundManager.Stop("GoT");
+                    SoundManager.Stop("MenuSound");
                     //// TODO: EXIT
                     // using (var game = new Game1())
                     //     game.Exit();
