@@ -4,6 +4,7 @@
     using JumpOnAHeadGame.Controller.Managers;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
+    using JumpOnAHeadGame.View.UI;
 
     public class Player
     {
@@ -16,7 +17,7 @@
         private const float JUMP_RANGE = 400;
         private const float JUMP_SPEED = 18;
 
-        public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position, bool isFacingRight)
+        public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position, Animation animation, bool isFacingRight)
         {
             this.State = "Idle";
             this.IsFacingRight = isFacingRight;
@@ -30,7 +31,9 @@
             this.Health = 100;
             this.Snowballs = 5;
             this.IsGrounded = false;
+            this.PlayerAnimation = animation;
         }
+        public Animation PlayerAnimation { get; set; }
 
         public Vector2 Position { get; set; }
 

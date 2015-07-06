@@ -31,5 +31,17 @@
 
             return currentAnimation;
         }
+
+        public static Animation CreateHealthPack()
+        {
+            Animation currentAnimation = new Animation(new Vector2(61, 80), Globals.Content.Load<Texture2D>("HealthPack"), 250);
+            currentAnimation.AnimationStates = new List<AnimationState>();
+            currentAnimation.AnimationStates.Add(new AnimationState("Normal", new Vector2(61, 80), 4, 0));
+
+            currentAnimation.Tint = Color.White;
+            currentAnimation.ChangeAnimation("Normal");
+
+            return currentAnimation;
+        }
     }
 }

@@ -10,7 +10,6 @@
         {
             this.Position = position;
             this.Sprite = sprite;
-            this.IsDrawn = false;
         }
 
         public Vector2 Position { get; set; }
@@ -18,7 +17,5 @@
         public Rectangle Bounds { get; set; }
 
         public Sprite Sprite { get; set; }
-
-        public bool IsDrawn { get; set; }
     }
 }
