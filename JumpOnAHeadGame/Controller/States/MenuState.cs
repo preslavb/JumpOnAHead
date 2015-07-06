@@ -44,7 +44,7 @@
                 {
                     this.IsDone = true;
                     SoundManager.Stop("MenuSound");
-                    SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
+                    //SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
                     this.NextState = new UpdateState(this);
 
                     StateMachine.CurrentLevel.Initialize();
@@ -65,8 +65,7 @@
                     this.IsDone = true;
                     SoundManager.Stop("MenuSound");
                     //// TODO: EXIT
-                    // using (var game = new Game1())
-                    // game.Exit();
+                    // Game1.Exit();
                 }
             }
         }

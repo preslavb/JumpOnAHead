@@ -24,13 +24,21 @@
         public static Sprite Player1Name = CreateSprite("Player1");
         public static Sprite Player2Name = CreateSprite("Player2");
 
-        public static Sprite HealthbarEmptyPlayer1 = CreateSprite("HealthBarEmpty");
-        public static Sprite HealthbarEmptyPlayer2 = CreateSprite("HealthBarEmpty");
+        public static Sprite HealthBarEmptyPlayer1 = CreateSprite("HealthBarEmpty");
+        public static Sprite HealthBarEmptyPlayer2 = CreateSprite("HealthBarEmpty");
 
         public static Sprite HealthbarFullPlayer1 = CreateSprite("HealthBarFull");
         public static Sprite HealthbarFullPlayer2 = CreateSprite("HealthBarFull");
 
         public static List<Sprite> ListOfHealthbars = new List<Sprite> { HealthbarFullPlayer1, HealthbarFullPlayer2 };
+
+        public static Sprite SnowballBarEmptyPlayer1 = CreateSprite("SnowballBarEmpty");
+        public static Sprite SnowballBarEmptyPlayer2 = CreateSprite("SnowballBarEmpty");
+       
+        public static Sprite SnowballBarFullPlayer1 = CreateSprite("SnowballBarFull");
+        public static Sprite SnowballBarFullPlayer2 = CreateSprite("SnowballBarFull");
+       
+        public static List<Sprite> ListOfSnowballBars = new List<Sprite> { SnowballBarFullPlayer1, SnowballBarFullPlayer2 };
 
         public static Button StartButton = CreateButton("StartNormal", "StartHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 275));
         public static Button OptionsButton = CreateButton("OptionsNormal", "OptionsHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 375));

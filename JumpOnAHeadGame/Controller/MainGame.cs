@@ -18,7 +18,7 @@
 
             this.IsMouseVisible = true;
 
-            Window.Title = "Snow Fighter!";
+            Window.Title = "Snow Fighter";
 
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
@@ -59,7 +59,7 @@
 
         protected override void Draw(GameTime gameTime)
         {
-            Globals.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+           // Globals.Graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
             StateMachine.CurrentState.Draw(this.renderer);
         }
     }

@@ -24,6 +24,7 @@
             {
                 this.NextState = this;
 
+
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
                     if (key.ButtonState == KeyboardButtonState.KeyState.Clicked)
