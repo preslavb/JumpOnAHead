@@ -10,11 +10,6 @@
 
     public static class UIInitializer
     {
-        public static PlayerUI PlayerUI1 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.Aquamarine));
-        public static PlayerUI PlayerUI2 = new PlayerUI(AnimationFactory.CreatePlayerAnimation(Color.Peru));
-
-        public static List<PlayerUI> ListOfPlayerUIs = new List<PlayerUI> { PlayerUI1, PlayerUI2 };
-
         public static SplashScreenUI SplashScreen = new SplashScreenUI(AnimationFactory.CreateSplashScreen());
 
         public static Sprite MenuBackground = CreateSprite("MenuBackground");
@@ -47,8 +42,6 @@
         public static Button CreditsButton = CreateButton("CreditsNormal", "CreditsHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 475));
         public static Button ExitButton = CreateButton("ExitNormal", "ExitHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 775));
         public static Button ExitToMenuButton = CreateButton("ExitToMenuNormal", "ExitToMenuHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 775));
-
-        //// public static Tile IceTile1 = CreateTile("IceTile", new Vector2(150, 50),0.2f);
 
         public static Button CreateButton(string buttonNormal, string buttonHover, Vector2 position)
         {

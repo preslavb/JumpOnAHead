@@ -13,17 +13,12 @@
         {
             this.NextState = nextState;
             this.IsDone = false;
+            this.IsInitialized = false;
 
             // Creating Background
             this.SpritesInState.Add(UIInitializer.LevelBackground);
 
-            // Creating players' Animation
-            foreach (var playerUI in UIInitializer.ListOfPlayerUIs)
-            {
-                this.SpritesInState.Add(playerUI.PlayerAnimation);
-            }
-
-            //// Creating names, healthbars and snowballBars
+            //// Creating UI: names, healthbars and snowballBars
             // Player 1
             UIInitializer.Player1Name.Position = new Vector2(20, 0);
             this.SpritesInState.Add(UIInitializer.Player1Name);
@@ -59,48 +54,58 @@
 
         private bool IsDone { get; set; }
 
+        private bool IsInitialized { get; set; }
+
         public override void Execute()
         {
+            // Initializing Animations and Sprites
+            if (!this.IsInitialized)
+            {
+                // Player animation
+                foreach (var player in StateMachine.CurrentLevel.ListOfPlayers)
+                {
+                    this.SpritesInState.Add(player.PlayerAnimation);
+                }
+                // Creating blocks
+                foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
+                {
+                    block.Sprite.Position = block.Position;
+                    block.Bounds = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.Texture.Width, block.Sprite.Texture.Height);
+                    this.SpritesInState.Add(block.Sprite);
+                }
+
+                // Creating Piles of snow
+                foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
+                {
+                    pile.Sprite.Position = pile.Position;
+                    pile.Bounds = new Rectangle((int)pile.Position.X, (int)pile.Position.Y, pile.Sprite.Texture.Width, pile.Sprite.Texture.Height);
+                    this.SpritesInState.Add(pile.Sprite);
+                }
+                // Creating snowballs that are inflight
+                foreach (var snowball in StateMachine.CurrentLevel.ListOfSnowballs)
+                {
+                    this.SpritesInState.Add(snowball.Sprite);
+                }
+                this.IsInitialized = true;
+            }
+
             if (!this.IsDone)
             {
                 this.NextState = this;
 
                 this.CheckForPause();
 
-                // Creating blocks
-                foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
-                {
-                    if (!block.IsDrawn)
-                    {
-                        block.IsDrawn = true;
-                        block.Sprite.Position = block.Position;
-                        block.Bounds = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.Texture.Width, block.Sprite.Texture.Height);
-                        this.SpritesInState.Add(block.Sprite);
-                    }
-                }
-
-                // Creating Piles of snow
-                foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
-                {
-                    if (!pile.IsDrawn)
-                    {
-                        pile.IsDrawn = true;
-                        pile.Sprite.Position = pile.Position;
-                        pile.Bounds = new Rectangle((int)pile.Position.X, (int)pile.Position.Y, pile.Sprite.Texture.Width, pile.Sprite.Texture.Height);
-                        this.SpritesInState.Add(pile.Sprite);
-                    }
-
-                    // Snowballs refill
-                    pile.RefillSnowballs(StateMachine.CurrentLevel.ListOfPlayers);
-                }
+                PileOfSnowRefilling();
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
                     // Adjusting snowballbars
                     UIInitializer.ListOfSnowballBars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfSnowballBars[i].SourceRectangle.X, UIInitializer.ListOfSnowballBars[i].SourceRectangle.Y, 20 * StateMachine.CurrentLevel.ListOfPlayers[i].Snowballs, UIInitializer.ListOfSnowballBars[i].SourceRectangle.Height);
-                   
+
                     // Adjusting Healthbars 
                     UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3 * StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
+
+                    // Game Over Condition
                     if (UIInitializer.ListOfHealthbars[i].SourceRectangle.Width == 0)
                     {
                         this.IsDone = true;
@@ -114,10 +119,10 @@
 
                     // Base Movement, Animation and Bounds
                     StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfBlocks);
-                    UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.Position = StateMachine.CurrentLevel.ListOfPlayers[i].Position;
-                    UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.IsFacingRight = StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight;
-                    StateMachine.CurrentLevel.ListOfPlayers[i].Bounds = new Rectangle((int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.X, (int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y, UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.SourceRectangle.Width, UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.SourceRectangle.Height);
-                    UIInitializer.ListOfPlayerUIs[i].PlayerAnimation.ChangeAnimation(StateMachine.CurrentLevel.ListOfPlayers[i].State);
+                    StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.Position = StateMachine.CurrentLevel.ListOfPlayers[i].Position;
+                    StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.IsFacingRight = StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight;
+                    StateMachine.CurrentLevel.ListOfPlayers[i].Bounds = new Rectangle((int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.X, (int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y, StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.SourceRectangle.Width, StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.SourceRectangle.Height);
+                    StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.ChangeAnimation(StateMachine.CurrentLevel.ListOfPlayers[i].State);
 
                     // Shooting
                     if (StateMachine.CurrentLevel.ListOfPlayers[i].IsShooting)
@@ -176,21 +181,14 @@
         public override void Draw(AbstractRenderer renderer)
         {
             renderer.DrawState(this.SpritesInState);
-            //// foreach (KeyboardButtonState Key in InputHandler.ActiveKeys)
-            // {
-            //     if (Key.Button == Keys.N && Key.ButtonState == KeyboardButtonState.KeyState.Clicked)
-            //     {
-            //        Globals.Graphics.GraphicsDevice.Clear(Color.Red);
-            //     }
-            //     else if (Key.Button == Keys.N && Key.ButtonState == KeyboardButtonState.KeyState.Held)
-            //     {
-            //         Globals.Graphics.GraphicsDevice.Clear(Color.Yellow);
-            //     }
-            //     else if (Key.Button == Keys.N && Key.ButtonState == KeyboardButtonState.KeyState.Released)
-            //     {
-            //         Globals.Graphics.GraphicsDevice.Clear(Color.Green);
-            //     }    
-            // }
+        }
+
+        private static void PileOfSnowRefilling()
+        {
+            foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
+            {
+                pile.RefillSnowballs(StateMachine.CurrentLevel.ListOfPlayers);
+            }
         }
 
         private void CheckForPause()
