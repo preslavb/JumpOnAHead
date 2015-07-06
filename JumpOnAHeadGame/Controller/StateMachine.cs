@@ -25,7 +25,7 @@
             InitialState.NextState = MenuState;
 
             CurrentState = InitialState;
-            CurrentLevel = new Level();
+            CurrentLevel = new LevelTwo();
             CurrentLevel.Initialize();
         }
 

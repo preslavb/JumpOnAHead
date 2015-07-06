@@ -23,8 +23,8 @@
             SoundEffect sound4 = Globals.Content.Load<SoundEffect>("Sound4");
             SoundEffect sound5 = Globals.Content.Load<SoundEffect>("Sound5");
             SoundEffect sound6 = Globals.Content.Load<SoundEffect>("Sound6");
-            SoundEffect snowballHit = Globals.Content.Load<SoundEffect>("SnowballHit");
-            SoundEffect snowballHitBlock = Globals.Content.Load<SoundEffect>("SnowImpactOnBlock");
+            SoundEffect snowballHit = Globals.Content.Load<SoundEffect>("SnowImpactOnBlock");
+            SoundEffect snowballHitBlock = Globals.Content.Load<SoundEffect>("SnowballHit");
             Add("MenuSound", menuSound);
             Add("Sound1", sound1);
             Add("Sound2", sound2);
