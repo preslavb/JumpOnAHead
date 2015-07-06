@@ -106,6 +106,13 @@ namespace JumpOnAHeadGame.Model
                 new Block(new Vector2(560, 580), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(640, 580), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(720, 580), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(800, 620), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(440, 620), UIInitializer.CreateSprite("IceCube")),
+
+                //// Central upper
+                new Block(new Vector2(600, 380), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(520, 380), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(680, 380), UIInitializer.CreateSprite("IceBlock")),
                 //// Right central blocks
                 new Block(new Vector2(1040, 350), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1120, 350), UIInitializer.CreateSprite("IceBlock")),
@@ -114,11 +121,6 @@ namespace JumpOnAHeadGame.Model
                 new Block(new Vector2(0, 300), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(80, 350), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(160, 350), UIInitializer.CreateSprite("IceBlock")),
-                //// Central upper
-                new Block(new Vector2(600, 380), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(520, 380), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(680, 380), UIInitializer.CreateSprite("IceBlock"))
-
             };
         }
     }

@@ -34,7 +34,7 @@
 
             set
             {
-                if (value < 5 && value > 0)
+                if (value < 6 && value >= 0)
                 {
                     this.menuId = value;
                 }
@@ -49,18 +49,29 @@
             {
                 this.NextState = this;
 
-                SoundManager.Play("MenuSound", true);
+                SoundManager.Play("MenuSound");
 
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
                     if (key.Button == Keys.Down && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.MenuId++;
+                        SoundManager.Play("MenuMove",1.0f);
+                        if(this.MenuId == 5)
+                        {
+                            this.MenuId = 1;
+                        }
                     }
 
                     if (key.Button == Keys.Up && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.MenuId--;
+                        SoundManager.Play("MenuMove",1.0f);
+                        if (this.MenuId == 0)
+                        {
+                            this.MenuId = 4;
+                        }
+
                     }
                 }
 
@@ -68,6 +79,7 @@
                 {
                     case 1:
                         UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.ExitButton.ChangeToNormalImage();
                         UIInitializer.StartButton.ChangeToHoverImage();
                         foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                         {
@@ -76,7 +88,7 @@
                                 this.IsDone = true;
                                 SoundManager.Pause("MenuSound");
                                 Globals.ChosenSound = "Sound" + Globals.Rng.Next(1, 7).ToString();
-                                SoundManager.Play(Globals.ChosenSound, true);
+                                SoundManager.Play(Globals.ChosenSound);
                                 this.NextState = new UpdateState(this);
 
                                 StateMachine.CurrentLevel.Initialize();
@@ -106,6 +118,7 @@
                         break;
 
                     case 4:
+                        UIInitializer.StartButton.ChangeToNormalImage();
                         UIInitializer.CreditsButton.ChangeToNormalImage();
                         UIInitializer.ExitButton.ChangeToHoverImage();
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))

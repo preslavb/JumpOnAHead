@@ -386,3 +386,9 @@
 /processorParam:TextureFormat=Color
 /build:HealthPack.png
 
+#begin MenuMoveSound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MenuMoveSound.mp3
+

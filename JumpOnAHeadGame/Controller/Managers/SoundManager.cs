@@ -25,6 +25,7 @@
             SoundEffect sound6 = Globals.Content.Load<SoundEffect>("Sound6");
             SoundEffect snowballHit = Globals.Content.Load<SoundEffect>("SnowImpactOnBlock");
             SoundEffect snowballHitBlock = Globals.Content.Load<SoundEffect>("SnowballHit");
+            SoundEffect menuMoveSound = Globals.Content.Load<SoundEffect>("MenuMoveSound");
             Add("MenuSound", menuSound);
             Add("Sound1", sound1);
             Add("Sound2", sound2);
@@ -34,17 +35,27 @@
             Add("Sound6", sound6);
             Add("SnowballHit", snowballHit);
             Add("SnowballHitBlock", snowballHitBlock);
+            Add("MenuMove", menuMoveSound);
         }
 
-        public static void Play(string name, bool isLooped)
+        public static void Play(string name)
         {
             if (!helper.ContainsKey(name))
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
-
+            helper[name].Volume = 0.2f;
             helper[name].Play();
-            helper[name].IsLooped = isLooped;
+        }
+
+        public static void Play(string name, float volume)
+        {
+            if (!helper.ContainsKey(name))
+            {
+                SoundManager.AddToHelper(name, effects[name].CreateInstance());
+            }
+            helper[name].Volume = volume;
+            helper[name].Play();
         }
 
         public static void Stop(string name)
