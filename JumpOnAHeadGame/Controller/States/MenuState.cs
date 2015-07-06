@@ -45,6 +45,8 @@
                     SoundManager.Stop("GoT");
 
                     this.NextState = new UpdateState(this);
+
+                    StateMachine.CurrentLevel.Initialize();
                 }
 
                 bool mouseExitHover = UIInitializer.ExitButton.Sprite.CollisionRectangle.Contains(Mouse.GetState().X, Mouse.GetState().Y);

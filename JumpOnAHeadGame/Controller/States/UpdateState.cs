@@ -29,7 +29,7 @@
             this.SpritesInState.Add(UIInitializer.Player1Name);
 
             UIInitializer.HealthbarEmptyPlayer1.Position = new Vector2(175, 5);
-            this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer1); 
+            this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer1);
 
             UIInitializer.HealthbarFullPlayer1.Position = new Vector2(180, 10);
             this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer1);
@@ -67,12 +67,11 @@
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
                     // Adjusting Healthbars
-                    UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3*StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
+                    UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3 * StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
                     if (UIInitializer.ListOfHealthbars[i].SourceRectangle.Width == 0)
                     {
                         this.IsDone = true;
-                         this.NextState = new GameOverState(this);
-
+                        this.NextState = new GameOverState(this);
                     }
 
                     // Base Movement, Animation and Bounds
