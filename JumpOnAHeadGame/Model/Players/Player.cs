@@ -138,7 +138,6 @@
                     if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.IsShooting = true;
-                        this.FixAcceleration();
                     }
                 }
             }

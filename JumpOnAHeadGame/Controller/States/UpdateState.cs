@@ -68,6 +68,12 @@
                 {
                     // Adjusting Healthbars
                     UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3*StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
+                    if (UIInitializer.ListOfHealthbars[i].SourceRectangle.Width == 0)
+                    {
+                        this.IsDone = true;
+                         this.NextState = new GameOverState(this);
+
+                    }
 
                     // Base Movement, Animation and Bounds
                     StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfBlocks);

@@ -10,6 +10,7 @@
 
     public class Level
     {
+
         public static Player Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(0, 800));
         public static Player Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(700, 800));
 
