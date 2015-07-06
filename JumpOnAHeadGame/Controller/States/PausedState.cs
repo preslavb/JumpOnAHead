@@ -8,6 +8,8 @@
 
     public class PausedState : State
     {
+        private int menuId;
+
         public PausedState(State nextState)
             : base(nextState)
         {
@@ -15,13 +17,29 @@
             this.IsDone = false;
 
             this.SpritesInState.Add(UIInitializer.PausedBackground);
-
             this.SpritesInState.Add(UIInitializer.ResumeButton.Sprite);
             this.SpritesInState.Add(UIInitializer.OptionsButton.Sprite);
             this.SpritesInState.Add(UIInitializer.ExitToMenuButton.Sprite);
+
+            this.MenuId = 1;
         }
 
         private bool IsDone { get; set; }
+
+        private int MenuId
+        {
+            get
+            {
+                return this.menuId;
+            }
+            set
+            {
+                if (value < 4 && value > 0)
+                {
+                    this.menuId = value;
+                }
+            }
+        }
 
         public override void Execute()
         {
@@ -29,36 +47,57 @@
             {
                 this.NextState = this;
 
-                bool mouseResumeHover = UIInitializer.ResumeButton.Sprite.CollisionRectangle.Contains(Mouse.GetState().X, Mouse.GetState().Y);
-                if (mouseResumeHover)
+                for (int m = 1; m < 7; m++)
                 {
-                    UIInitializer.ResumeButton.ChangeToHoverImage();
-                }
-                else
-                {
-                    UIInitializer.ResumeButton.ChangeToNormalImage();
+                    SoundManager.Stop("Sound" + m.ToString());
                 }
 
-                if (Mouse.GetState().LeftButton == ButtonState.Pressed && mouseResumeHover)
+                SoundManager.Play("MenuSound");
+
+                foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
-                    this.IsDone = true;
-                    this.NextState = new UpdateState(this);
+                    if (key.Button == Keys.Down && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                    {
+                        MenuId++;
+                    }
+                    if (key.Button == Keys.Up && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                    {
+                        MenuId--;
+                    }
                 }
 
-                bool mouseExitToMenuHover = UIInitializer.ExitToMenuButton.Sprite.CollisionRectangle.Contains(Mouse.GetState().X, Mouse.GetState().Y);
-                if (mouseExitToMenuHover)
+                switch (MenuId)
                 {
-                    UIInitializer.ExitToMenuButton.ChangeToHoverImage();
-                }
-                else
-                {
-                    UIInitializer.ExitToMenuButton.ChangeToNormalImage();
-                }
+                    case 1:
+                        UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.ResumeButton.ChangeToHoverImage();
 
-                if (Mouse.GetState().LeftButton == ButtonState.Pressed && mouseExitToMenuHover)
-                {
-                    this.IsDone = true;
-                    this.NextState = new MenuState(this);
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            this.IsDone = true;
+                            this.NextState = new UpdateState(this);
+                        }
+                        break;
+                    case 2:
+                        UIInitializer.ResumeButton.ChangeToNormalImage();
+                        UIInitializer.ExitToMenuButton.ChangeToNormalImage();
+                        UIInitializer.OptionsButton.ChangeToHoverImage();
+
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+
+                        }
+                        break;
+                    case 3:
+                        UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.ExitToMenuButton.ChangeToHoverImage();
+
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            this.IsDone = true;
+                            this.NextState = new MenuState(this);
+                        }
+                        break;
                 }
             }
         }

@@ -39,6 +39,7 @@
                 }
             }
         }
+
         private bool IsDone { get; set; }
 
         public override void Execute()
@@ -60,68 +61,55 @@
                     {
                         MenuId--;
                     }
-
                 }
 
-                if (MenuId == 1)
+                switch (MenuId)
                 {
-                    UIInitializer.StartButton.ChangeToHoverImage();
-                }
-                else
-                {
-                    UIInitializer.StartButton.ChangeToNormalImage();
-                }
+                    case 1:
+                        UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.StartButton.ChangeToHoverImage();
+                        foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
+                        {
+                            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                            {
+                                this.IsDone = true;
+                                SoundManager.Stop("MenuSound");
+                                SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
+                                this.NextState = new UpdateState(this);
 
-                foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
-                {
-                    if (MenuId == 1 && Keyboard.GetState().IsKeyDown(Keys.Enter) && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
-                    {
-                        this.IsDone = true;
-                        SoundManager.Stop("MenuSound");
-                        SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
-                        this.NextState = new UpdateState(this);
+                                StateMachine.CurrentLevel.Initialize();
+                            }
+                        }
+                        break;
 
-                        StateMachine.CurrentLevel.Initialize();
-                    }
-                }
-                if (MenuId == 2)
-                {
-                    UIInitializer.OptionsButton.ChangeToHoverImage();
-                }
-                else
-                {
-                    UIInitializer.OptionsButton.ChangeToNormalImage();
-                }
-                if (MenuId == 2 && Keyboard.GetState().IsKeyDown(Keys.Enter))
-                {
-                }
+                    case 2:
+                        UIInitializer.StartButton.ChangeToNormalImage();
+                        UIInitializer.CreditsButton.ChangeToNormalImage();
+                        UIInitializer.OptionsButton.ChangeToHoverImage();
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                        }
+                        break;
 
-                if (MenuId == 3)
-                {
-                    UIInitializer.CreditsButton.ChangeToHoverImage();
-                }
-                else
-                {
-                    UIInitializer.CreditsButton.ChangeToNormalImage();
-                }
-                if (MenuId == 3 && Keyboard.GetState().IsKeyDown(Keys.Enter))
-                {
-                }
+                    case 3:
+                        UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.ExitButton.ChangeToNormalImage();
+                        UIInitializer.CreditsButton.ChangeToHoverImage();
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                        }
+                        break;
 
-                if (MenuId == 4)
-                {
-                    UIInitializer.ExitButton.ChangeToHoverImage();
-                }
-                else
-                {
-                    UIInitializer.ExitButton.ChangeToNormalImage();
-                }
-                if (MenuId == 4 && Keyboard.GetState().IsKeyDown(Keys.Enter))
-                {
-                    this.IsDone = true;
-                    SoundManager.Stop("MenuSound");
-                    // TODO: EXIT
-                    Game1.self.Exit();
+                    case 4:
+                        UIInitializer.CreditsButton.ChangeToNormalImage();
+                        UIInitializer.ExitButton.ChangeToHoverImage();
+                        if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                        {
+                            this.IsDone = true;
+                            SoundManager.Stop("MenuSound");
+                            Game1.self.Exit();
+                        }
+                        break;
                 }
             }
         }
