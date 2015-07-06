@@ -23,7 +23,7 @@ namespace JumpOnAHeadGame.Model
             {
                 new PileOfSnow(new Vector2(650, 880), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(510, 880), UIInitializer.CreateSprite("PileOfSnow")), 
-                new PileOfSnow(new Vector2(-20, 230), UIInitializer.CreateSprite("PileOfSnow")), 
+                new PileOfSnow(new Vector2(-30, 230), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(1185, 230), UIInitializer.CreateSprite("PileOfSnow")), 
             };
 
@@ -106,9 +106,9 @@ namespace JumpOnAHeadGame.Model
                 new Block(new Vector2(1000, 620), UIInitializer.CreateSprite("IceBlock")),
                 //// Central Upper Blocks
                 new Block(new Vector2(560, 385), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(500, 430), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(640, 385), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(520, 430), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(720, 430), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(700, 430), UIInitializer.CreateSprite("IceBlock")),
                 //// Left blocks
                 new Block(new Vector2(0, 300), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(80, 350), UIInitializer.CreateSprite("IceBlock")),

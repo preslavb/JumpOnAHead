@@ -1,10 +1,8 @@
 ﻿namespace JumpOnAHeadGame.Controller
 {
     using JumpOnAHeadGame.Controller.Managers;
-    using JumpOnAHeadGame.Controller.States;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
 
     public class Game1 : Game
@@ -20,7 +18,7 @@
             Globals.Content = this.Content;
             Globals.Content.RootDirectory = "Content";
 
-            this.IsMouseVisible = true;
+            this.IsMouseVisible = false;
 
             Window.Title = "Snow Fighter";
 

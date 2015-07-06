@@ -88,6 +88,21 @@
             helper[name].Resume();
         }
 
+        public static SoundState GetState(string name)
+        {
+            if(helper[name].State == SoundState.Playing)
+            {
+                return SoundState.Playing;
+            }
+            if(helper[name].State == SoundState.Stopped)
+            {
+                return SoundState.Stopped;
+            }
+            else
+            {
+                return SoundState.Paused;
+            }
+        }
         private static void AddToHelper(string name, SoundEffectInstance effect)
         {
             helper.Add(name, effect);

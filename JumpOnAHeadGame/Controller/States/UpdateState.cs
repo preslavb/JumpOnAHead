@@ -4,6 +4,7 @@
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Input;
 
     public class UpdateState : State
@@ -95,6 +96,8 @@
 
                 this.CheckForPause();
 
+                this.PlaySound();
+
                 PileOfSnowRefilling();
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
@@ -175,6 +178,15 @@
                         StateMachine.CurrentLevel.ListOfSnowballs.Remove(StateMachine.CurrentLevel.ListOfSnowballs[i]);
                     }
                 }
+            }
+        }
+
+        private void PlaySound()
+        {
+            SoundState state = SoundManager.GetState(Globals.ChosenSound);
+            if(state == SoundState.Stopped)
+            {
+                SoundManager.Play(Globals.ChosenSound);
             }
         }
 
