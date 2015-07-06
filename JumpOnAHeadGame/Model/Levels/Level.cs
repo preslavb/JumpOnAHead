@@ -1,6 +1,7 @@
-﻿namespace JumpOnAHeadGame.Model
+﻿namespace JumpOnAHeadGame.Model.Levels
 {
     using System.Collections.Generic;
+    using JumpOnAHeadGame.Model.Objects;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View;
     using JumpOnAHeadGame.View.UI;

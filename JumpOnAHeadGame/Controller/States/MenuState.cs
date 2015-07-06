@@ -1,9 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
-    using System;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
-    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
 
     public class MenuState : State

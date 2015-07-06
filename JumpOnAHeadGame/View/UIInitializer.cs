@@ -5,7 +5,6 @@
     using JumpOnAHeadGame.View.UI;
     using JumpOnAHeadGame.View.UI.Models;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
     public static class UIInitializer

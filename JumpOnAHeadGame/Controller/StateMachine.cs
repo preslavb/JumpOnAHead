@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.States;
-    using JumpOnAHeadGame.Model;
+    using JumpOnAHeadGame.Model.Levels;
 
     public static class StateMachine
     {

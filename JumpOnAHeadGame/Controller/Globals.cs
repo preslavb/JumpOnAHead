@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using JumpOnAHeadGame.Model;
+    using JumpOnAHeadGame.Model.Levels;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;

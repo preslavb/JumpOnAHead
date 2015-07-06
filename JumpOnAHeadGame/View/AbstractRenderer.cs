@@ -2,9 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using JumpOnAHeadGame.Controller;
     using JumpOnAHeadGame.View.UI;
-    using Microsoft.Xna.Framework;
 
     public class AbstractRenderer
     {

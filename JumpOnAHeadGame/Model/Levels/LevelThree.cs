@@ -1,9 +1,10 @@
-﻿namespace JumpOnAHeadGame.Model
+﻿namespace JumpOnAHeadGame.Model.Levels
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using JumpOnAHeadGame.Model.Objects;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View;
     using JumpOnAHeadGame.View.UI;

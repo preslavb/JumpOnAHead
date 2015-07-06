@@ -1,7 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
     using JumpOnAHeadGame.Controller.Managers;
-    using JumpOnAHeadGame.Model.Players;
+    using JumpOnAHeadGame.Model.Objects;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;

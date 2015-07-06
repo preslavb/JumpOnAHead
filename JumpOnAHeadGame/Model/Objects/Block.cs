@@ -1,8 +1,7 @@
-﻿namespace JumpOnAHeadGame.Model.Players
+﻿namespace JumpOnAHeadGame.Model.Objects
 {
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Input;
 
     public class Block
     {

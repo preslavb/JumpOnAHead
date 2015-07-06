@@ -1,7 +1,6 @@
 ﻿namespace JumpOnAHeadGame.View.UI.Models
 {
     using JumpOnAHeadGame.View.UI;
-    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
     public class Button
