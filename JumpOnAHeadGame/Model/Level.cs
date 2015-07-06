@@ -26,16 +26,16 @@
             Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), true);
             Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), false);
 
-            ListOfPlayers = new List<Player> { Player1, Player2 };
+            this.ListOfPlayers = new List<Player> { Player1, Player2 };
 
-            ListOfSnowballs = new List<Snowball>();
+            this.ListOfSnowballs = new List<Snowball>();
 
-            ListOfPilesOfSnow = new List<PileOfSnow>
+            this.ListOfPilesOfSnow = new List<PileOfSnow>
             {
                 new PileOfSnow(new Vector2(500, 880), UIInitializer.CreateSprite("PileOfSnow")), 
             };
 
-            ListOfBlocks = new List<Block> 
+            this.ListOfBlocks = new List<Block> 
             { 
                 // TOP BLOCK LINE
                 new Block(new Vector2(0, 70), UIInitializer.CreateSprite("IceCube")), 
@@ -70,7 +70,7 @@
                 new Block(new Vector2(1160, 70), UIInitializer.CreateSprite("IceCube")),        
                 new Block(new Vector2(1200, 70), UIInitializer.CreateSprite("IceCube")),        
                 new Block(new Vector2(1240, 70), UIInitializer.CreateSprite("IceCube")),        
-                // BOT BLOCK LINE
+                //// BOT BLOCK LINE
                 new Block(new Vector2(0, 950), UIInitializer.CreateSprite("IceBlock")), 
                 new Block(new Vector2(80, 950), UIInitializer.CreateSprite("IceBlock")), 
                 new Block(new Vector2(160, 950), UIInitializer.CreateSprite("IceBlock")), 
@@ -87,22 +87,22 @@
                 new Block(new Vector2(1040, 950), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1120, 950), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1200, 950), UIInitializer.CreateSprite("IceBlock")),
-                // some
+                //// some
                 new Block(new Vector2(0, 700), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(80, 700), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(160, 750), UIInitializer.CreateSprite("IceBlock")),
-                // some
+                //// some
                 new Block(new Vector2(1040, 750), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1120, 700), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1200, 700), UIInitializer.CreateSprite("IceBlock")),
-                // LEFT CUBE LINE
+                //// LEFT CUBE LINE
                 new Block(new Vector2(0, 250), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(0, 300), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(0, 350), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(0, 400), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(0, 450), UIInitializer.CreateSprite("IceCube")),   
                 new Block(new Vector2(0, 500), UIInitializer.CreateSprite("IceCube")),
-                // RIGHT CUBE LINE
+                //// RIGHT CUBE LINE
                 new Block(new Vector2(1240, 250), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 300), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 350), UIInitializer.CreateSprite("IceCube")),

@@ -1,10 +1,10 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
+    using System;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
-    using System;
 
     public class PausedState : State
     {
@@ -32,6 +32,7 @@
             {
                 return this.menuId;
             }
+
             set
             {
                 if (value < 4 && value > 0)
@@ -47,26 +48,24 @@
             {
                 this.NextState = this;
 
-                for (int m = 1; m < 7; m++)
-                {
-                    SoundManager.Stop("Sound" + m.ToString());
-                }
+                SoundManager.Pause(Globals.ChosenSound);
 
-                SoundManager.Play("MenuSound");
+                SoundManager.Resume("MenuSound");
 
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
                     if (key.Button == Keys.Down && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
-                        MenuId++;
+                        this.MenuId++;
                     }
+
                     if (key.Button == Keys.Up && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
-                        MenuId--;
+                        this.MenuId--;
                     }
                 }
 
-                switch (MenuId)
+                switch (this.MenuId)
                 {
                     case 1:
                         UIInitializer.OptionsButton.ChangeToNormalImage();
@@ -74,10 +73,14 @@
 
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
+                            SoundManager.Pause("MenuSound");
+                            SoundManager.Resume(Globals.ChosenSound);
                             this.IsDone = true;
                             this.NextState = new UpdateState(this);
                         }
+
                         break;
+
                     case 2:
                         UIInitializer.ResumeButton.ChangeToNormalImage();
                         UIInitializer.ExitToMenuButton.ChangeToNormalImage();
@@ -85,9 +88,10 @@
 
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
-
                         }
+
                         break;
+
                     case 3:
                         UIInitializer.OptionsButton.ChangeToNormalImage();
                         UIInitializer.ExitToMenuButton.ChangeToHoverImage();
@@ -97,6 +101,7 @@
                             this.IsDone = true;
                             this.NextState = new MenuState(this);
                         }
+
                         break;
                 }
             }

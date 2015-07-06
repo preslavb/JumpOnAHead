@@ -69,7 +69,7 @@
         {
             if (this.Bounds.Intersects(player.Bounds))
             {
-                SoundManager.Play("SnowballHit");
+                SoundManager.Play("SnowballHit", false);
                 this.IsMelting = true;
                 player.Health -= 10;
             }

@@ -1,10 +1,10 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
+    using System;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
-    using System;
 
     public class MenuState : State
     {
@@ -31,6 +31,7 @@
             {
                 return this.menuId;
             }
+
             set
             {
                 if (value < 5 && value > 0)
@@ -46,24 +47,24 @@
         {
             if (!this.IsDone)
             {
-
                 this.NextState = this;
 
-                SoundManager.Play("MenuSound");
+                SoundManager.Play("MenuSound", true);
 
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
                     if (key.Button == Keys.Down && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
-                        MenuId++;
+                        this.MenuId++;
                     }
+
                     if (key.Button == Keys.Up && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
-                        MenuId--;
+                        this.MenuId--;
                     }
                 }
 
-                switch (MenuId)
+                switch (this.MenuId)
                 {
                     case 1:
                         UIInitializer.OptionsButton.ChangeToNormalImage();
@@ -73,13 +74,15 @@
                             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                             {
                                 this.IsDone = true;
-                                SoundManager.Stop("MenuSound");
-                                SoundManager.Play("Sound" + Globals.rng.Next(1, 7).ToString());
+                                SoundManager.Pause("MenuSound");
+                                Globals.ChosenSound = "Sound" + Globals.Rng.Next(1, 7).ToString();
+                                SoundManager.Play(Globals.ChosenSound, true);
                                 this.NextState = new UpdateState(this);
 
                                 StateMachine.CurrentLevel.Initialize();
                             }
                         }
+
                         break;
 
                     case 2:
@@ -89,6 +92,7 @@
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
                         }
+
                         break;
 
                     case 3:
@@ -98,6 +102,7 @@
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
                         }
+
                         break;
 
                     case 4:
@@ -107,13 +112,13 @@
                         {
                             this.IsDone = true;
                             SoundManager.Stop("MenuSound");
-                            Game1.self.Exit();
+                            Game1.Self.Exit();
                         }
+
                         break;
                 }
             }
         }
-
 
         public override void Draw(AbstractRenderer renderer)
         {

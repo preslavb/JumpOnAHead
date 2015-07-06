@@ -13,7 +13,6 @@
             this.IsDone = false;
 
             this.SpritesInState.Add(UIInitializer.GameOverBackground);
-
         }
 
         private bool IsDone { get; set; }

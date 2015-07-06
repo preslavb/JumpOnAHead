@@ -9,12 +9,12 @@
 
     public class Game1 : Game
     {
-        public static Game1 self;
+        public static Game1 Self;
         private MonoGameRenderer renderer;
 
         public Game1()
         {
-            self = this;
+            Self = this;
 
             Globals.Graphics = new GraphicsDeviceManager(this);
             Globals.Content = this.Content;
@@ -29,7 +29,6 @@
 
             // For Later
             // Globals.Graphics.IsFullScreen = true;
-
         }
 
         protected override void Initialize()

@@ -13,8 +13,7 @@
         {
             effects.Add(name, effect);
         }
-        
-
+  
         public static void LoadContent()
         {
             SoundEffect menuSound = Globals.Content.Load<SoundEffect>("MenuSound");
@@ -35,7 +34,7 @@
             Add("SnowballHit", snowballHit);
         }
 
-        public static void Play(string name)
+        public static void Play(string name, bool isLooped)
         {
             if (!helper.ContainsKey(name))
             {
@@ -43,6 +42,7 @@
             }
 
             helper[name].Play();
+            helper[name].IsLooped = isLooped;
         }
 
         public static void Stop(string name)

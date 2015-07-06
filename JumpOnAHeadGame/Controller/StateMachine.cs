@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.States;
     using JumpOnAHeadGame.Model;
-    using JumpOnAHeadGame.Controller.Managers;
 
     public static class StateMachine
     {

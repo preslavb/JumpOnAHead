@@ -39,6 +39,7 @@
 
             UIInitializer.SnowballBarFullPlayer1.Position = new Vector2(180, 45);
             this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer1);
+
             // Player 2
             UIInitializer.Player2Name.Position = new Vector2(790, 0);
             this.SpritesInState.Add(UIInitializer.Player2Name);
@@ -64,7 +65,7 @@
             {
                 this.NextState = this;
 
-                CheckForPause();
+                this.CheckForPause();
 
                 // Creating blocks
                 foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
@@ -88,6 +89,7 @@
                         pile.Bounds = new Rectangle((int)pile.Position.X, (int)pile.Position.Y, pile.Sprite.Texture.Width, pile.Sprite.Texture.Height);
                         this.SpritesInState.Add(pile.Sprite);
                     }
+
                     // Snowballs refill
                     pile.RefillSnowballs(StateMachine.CurrentLevel.ListOfPlayers);
                 }
@@ -103,7 +105,7 @@
                     {
                         this.IsDone = true;
                         this.NextState = new GameOverState(this);
-                        // Stop sounds
+                        //// Stop sounds
                         for (int m = 1; m < 7; m++)
                         {
                             SoundManager.Stop("Sound" + m.ToString());
@@ -171,21 +173,8 @@
             }
         }
 
-        private void CheckForPause()
-        {
-            foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
-            {
-                if (key.Button == Keys.Escape && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
-                {
-                    this.IsDone = true;
-                    this.NextState = new PausedState(this);
-                }
-            }
-        }
-
         public override void Draw(AbstractRenderer renderer)
         {
-
             renderer.DrawState(this.SpritesInState);
             //// foreach (KeyboardButtonState Key in InputHandler.ActiveKeys)
             // {
@@ -202,6 +191,18 @@
             //         Globals.Graphics.GraphicsDevice.Clear(Color.Green);
             //     }    
             // }
+        }
+
+        private void CheckForPause()
+        {
+            foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
+            {
+                if (key.Button == Keys.Escape && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                {
+                    this.IsDone = true;
+                    this.NextState = new PausedState(this);
+                }
+            }
         }
     }
 }

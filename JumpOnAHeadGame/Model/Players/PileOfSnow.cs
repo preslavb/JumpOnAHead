@@ -1,9 +1,9 @@
 ﻿namespace JumpOnAHeadGame.Model.Players
 {
+    using System.Collections.Generic;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
-    using System.Collections.Generic;
 
     public class PileOfSnow
     {
@@ -36,7 +36,6 @@
                         if (this.RefillTime < 30)
                         {
                             this.RefillTime++;
-
                         }
                         else
                         {
@@ -46,7 +45,6 @@
                     }
                 }
             }
-
         }
     }
 }

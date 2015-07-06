@@ -63,12 +63,13 @@
             {
                 foreach (var block in blocks)
                 {
-                    Rectangle tempRect = new Rectangle((int)(this.Bounds.X), (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
+                    Rectangle tempRect = new Rectangle((int)this.Bounds.X, (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
                     if (tempRect.Intersects(block.Bounds))
                     {
                         this.JumpHeight = 0;
                     }
                 }
+
                 if (this.JumpHeight != 0)
                 {
                     this.Position = new Vector2(this.Position.X, this.Position.Y - JUMP_SPEED);
@@ -80,12 +81,13 @@
             this.IsGrounded = false;
             foreach (var block in blocks)
             {
-                Rectangle tempRect = new Rectangle((int)(this.Bounds.X), (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
+                Rectangle tempRect = new Rectangle((int)this.Bounds.X, (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
                 if (tempRect.Intersects(block.Bounds))
                 {
                     this.IsGrounded = true;
                 }
             }
+
             if (!this.IsGrounded)
             {
                 this.Position = new Vector2(this.Position.X, this.Position.Y + FALL_VELOCITY);
@@ -165,7 +167,7 @@
             else
             {
                 int tempDistance = this.Acceleration.X > 0 ? 1 : -1; // hack
-                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + (this.Acceleration.X + tempDistance)), (int)(this.Bounds.Y), this.Bounds.Width, this.Bounds.Height);
+                Rectangle tempRect = new Rectangle((int)(this.Bounds.X + (this.Acceleration.X + tempDistance)), (int)this.Bounds.Y, this.Bounds.Width, this.Bounds.Height);
                 foreach (var block in blocks)
                 {
                     if (tempRect.Intersects(block.Bounds))
@@ -173,6 +175,7 @@
                         this.Acceleration = new Vector2(0, 0);
                     }
                 }
+
                 this.Position += this.Acceleration;
             }
         }
