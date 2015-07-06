@@ -78,14 +78,13 @@ namespace JumpOnAHeadGame.Model
                 new Block(new Vector2(1120, 950), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1200, 950), UIInitializer.CreateSprite("IceBlock")),
                 //// Left Cube line
-                new Block(new Vector2(40, 750), UIInitializer.CreateSprite("IceBlock")),   
-                new Block(new Vector2(0, 750), UIInitializer.CreateSprite("IceCube")),   
+                //new Block(new Vector2(40, 750), UIInitializer.CreateSprite("IceBlock")),   
+                new Block(new Vector2(0, 750), UIInitializer.CreateSprite("IceBlock")),   
                 new Block(new Vector2(0, 800), UIInitializer.CreateSprite("IceCube")),   
                 new Block(new Vector2(0, 850), UIInitializer.CreateSprite("IceCube")),   
                 new Block(new Vector2(0, 900), UIInitializer.CreateSprite("IceCube")),
                 //// Right Cube Line
-                new Block(new Vector2(1240, 750), UIInitializer.CreateSprite("IceCube")),
-                new Block(new Vector2(1160, 750), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1200, 750), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1240, 800), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 850), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 900), UIInitializer.CreateSprite("IceCube")),
@@ -97,7 +96,9 @@ namespace JumpOnAHeadGame.Model
                 new Block(new Vector2(600, 750), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(680, 750), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(250, 580), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(210, 620), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(950, 580), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1030, 620), UIInitializer.CreateSprite("IceCube")),
                 //// Central Upper Blocks
                 new Block(new Vector2(560, 385), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(640, 385), UIInitializer.CreateSprite("IceBlock")),

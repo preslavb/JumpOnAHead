@@ -14,7 +14,7 @@ namespace JumpOnAHeadGame.Model
     {
         public override void Initialize()
         {
-            Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), AnimationFactory.CreatePlayerAnimation(Color.Aquamarine), true);
+            Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(40, 150), AnimationFactory.CreatePlayerAnimation(Color.Aquamarine), true);
             Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), AnimationFactory.CreatePlayerAnimation(Color.Peru), false);
 
             this.ListOfPlayers = new List<Player> { Player1, Player2 };
@@ -23,7 +23,8 @@ namespace JumpOnAHeadGame.Model
 
             this.ListOfPilesOfSnow = new List<PileOfSnow>
             {
-                new PileOfSnow(new Vector2(580, 480), UIInitializer.CreateSprite("PileOfSnow")), 
+                new PileOfSnow(new Vector2(580, 510), UIInitializer.CreateSprite("PileOfSnow")), 
+                new PileOfSnow(new Vector2(580, 880), UIInitializer.CreateSprite("PileOfSnow")), 
             };
 
             this.ListOfBlocks = new List<Block> 
