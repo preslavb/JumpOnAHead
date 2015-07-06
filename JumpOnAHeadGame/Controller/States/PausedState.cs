@@ -35,7 +35,7 @@
 
             set
             {
-                if (value < 4 && value > 0)
+                if (value < 5 && value >= 0)
                 {
                     this.menuId = value;
                 }
@@ -57,17 +57,28 @@
                     if (key.Button == Keys.Down && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.MenuId++;
+                        SoundManager.Play("MenuMove", 1.0f);
+                        if (this.MenuId == 4)
+                        {
+                            this.MenuId = 1;
+                        }
                     }
 
                     if (key.Button == Keys.Up && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.MenuId--;
+                        SoundManager.Play("MenuMove", 1.0f);
+                        if (this.MenuId == 0)
+                        {
+                            this.MenuId = 3;
+                        }
                     }
                 }
 
                 switch (this.MenuId)
                 {
                     case 1:
+                        UIInitializer.ExitToMenuButton.ChangeToNormalImage();
                         UIInitializer.OptionsButton.ChangeToNormalImage();
                         UIInitializer.ResumeButton.ChangeToHoverImage();
 
@@ -94,6 +105,7 @@
 
                     case 3:
                         UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.ResumeButton.ChangeToNormalImage();
                         UIInitializer.ExitToMenuButton.ChangeToHoverImage();
 
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
