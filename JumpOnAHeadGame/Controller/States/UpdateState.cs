@@ -23,25 +23,37 @@
                 this.SpritesInState.Add(playerUI.PlayerAnimation);
             }
 
-            //// Creating names and healthbars
+            //// Creating names, healthbars and snowballBars
             // Player 1
             UIInitializer.Player1Name.Position = new Vector2(20, 0);
             this.SpritesInState.Add(UIInitializer.Player1Name);
 
-            UIInitializer.HealthbarEmptyPlayer1.Position = new Vector2(175, 5);
-            this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer1);
+            UIInitializer.HealthBarEmptyPlayer1.Position = new Vector2(175, 5);
+            this.SpritesInState.Add(UIInitializer.HealthBarEmptyPlayer1);
 
             UIInitializer.HealthbarFullPlayer1.Position = new Vector2(180, 10);
             this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer1);
+
+            UIInitializer.SnowballBarEmptyPlayer1.Position = new Vector2(180, 45);
+            this.SpritesInState.Add(UIInitializer.SnowballBarEmptyPlayer1);
+
+            UIInitializer.SnowballBarFullPlayer1.Position = new Vector2(180, 45);
+            this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer1);
             // Player 2
             UIInitializer.Player2Name.Position = new Vector2(790, 0);
             this.SpritesInState.Add(UIInitializer.Player2Name);
 
-            UIInitializer.HealthbarEmptyPlayer2.Position = new Vector2(945, 5);
-            this.SpritesInState.Add(UIInitializer.HealthbarEmptyPlayer2);
+            UIInitializer.HealthBarEmptyPlayer2.Position = new Vector2(945, 5);
+            this.SpritesInState.Add(UIInitializer.HealthBarEmptyPlayer2);
 
             UIInitializer.HealthbarFullPlayer2.Position = new Vector2(950, 10);
             this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer2);
+
+            UIInitializer.SnowballBarEmptyPlayer2.Position = new Vector2(950, 45);
+            this.SpritesInState.Add(UIInitializer.SnowballBarEmptyPlayer2);
+
+            UIInitializer.SnowballBarFullPlayer2.Position = new Vector2(950, 45);
+            this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer2);
         }
 
         private bool IsDone { get; set; }
@@ -66,12 +78,20 @@
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
                 {
-                    // Adjusting Healthbars
+                    // Adjusting snowballbars
+                    UIInitializer.ListOfSnowballBars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfSnowballBars[i].SourceRectangle.X, UIInitializer.ListOfSnowballBars[i].SourceRectangle.Y, 20 * StateMachine.CurrentLevel.ListOfPlayers[i].Snowballs, UIInitializer.ListOfSnowballBars[i].SourceRectangle.Height);
+                   
+                    // Adjusting Healthbars 
                     UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3 * StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
                     if (UIInitializer.ListOfHealthbars[i].SourceRectangle.Width == 0)
                     {
                         this.IsDone = true;
                         this.NextState = new GameOverState(this);
+                        // Stop sounds
+                        for (int m = 1; m < 7; m++)
+                        {
+                            SoundManager.Stop("Sound" + m.ToString());
+                        }
                     }
 
                     // Base Movement, Animation and Bounds

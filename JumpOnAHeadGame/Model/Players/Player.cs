@@ -28,6 +28,7 @@
             this.Controls.Add("Dash", dash);
             this.Position = position;
             this.Health = 100;
+            this.Snowballs = 5;
             this.IsGrounded = false;
         }
 
@@ -50,6 +51,8 @@
         public float JumpHeight { get; set; }
 
         public int Health { get; set; }
+
+        public int Snowballs { get; set; }
 
         public void Move(List<Block> blocks)
         {
@@ -137,7 +140,11 @@
 
                     if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
-                        this.IsShooting = true;
+                        if (this.Snowballs != 0)
+                        {
+                            this.IsShooting = true;
+                            this.Snowballs--;
+                        }
                     }
                 }
             }
