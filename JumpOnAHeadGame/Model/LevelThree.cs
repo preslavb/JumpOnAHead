@@ -14,6 +14,8 @@ namespace JumpOnAHeadGame.Model
     {
         public override void Initialize()
         {
+            LevelBackground = UIInitializer.CreateSprite("Level3Background");
+
             Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), AnimationFactory.CreatePlayerAnimation(Color.Aquamarine), true);
             Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), AnimationFactory.CreatePlayerAnimation(Color.Peru), false); this.ListOfPlayers = new List<Player> { Player1, Player2 };
 

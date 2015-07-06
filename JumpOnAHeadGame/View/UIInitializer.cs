@@ -13,7 +13,6 @@
         public static SplashScreenUI SplashScreen = new SplashScreenUI(AnimationFactory.CreateSplashScreen());
 
         public static Sprite MenuBackground = CreateSprite("MenuBackground");
-        public static Sprite LevelBackground = CreateSprite("LevelBackground");
         public static Sprite GameOverBackground = CreateSprite("GameOverBackground");
         public static Sprite PausedBackground = CreateSprite("PausedBackground");
 

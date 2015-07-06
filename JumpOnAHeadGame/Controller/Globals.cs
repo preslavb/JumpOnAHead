@@ -4,6 +4,8 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using JumpOnAHeadGame.Model;
 
     public static class Globals
     {
@@ -24,5 +26,7 @@
         public static GameTime GameTime { get; set; }
 
         public static string ChosenSound { get; set; }
+
+        public static List<Level> ListOfLevels = new List<Level>{ new LevelOne(), new LevelTwo(), new LevelThree()};
     }
 }
