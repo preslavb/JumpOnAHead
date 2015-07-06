@@ -14,42 +14,6 @@
             this.NextState = nextState;
             this.IsDone = false;
             this.IsInitialized = false;
-
-            // Creating Background
-            this.SpritesInState.Add(UIInitializer.LevelBackground);
-
-            //// Creating UI: names, healthbars and snowballBars
-            // Player 1
-            UIInitializer.Player1Name.Position = new Vector2(20, 0);
-            this.SpritesInState.Add(UIInitializer.Player1Name);
-
-            UIInitializer.HealthBarEmptyPlayer1.Position = new Vector2(175, 5);
-            this.SpritesInState.Add(UIInitializer.HealthBarEmptyPlayer1);
-
-            UIInitializer.HealthbarFullPlayer1.Position = new Vector2(180, 10);
-            this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer1);
-
-            UIInitializer.SnowballBarEmptyPlayer1.Position = new Vector2(180, 45);
-            this.SpritesInState.Add(UIInitializer.SnowballBarEmptyPlayer1);
-
-            UIInitializer.SnowballBarFullPlayer1.Position = new Vector2(180, 45);
-            this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer1);
-
-            // Player 2
-            UIInitializer.Player2Name.Position = new Vector2(790, 0);
-            this.SpritesInState.Add(UIInitializer.Player2Name);
-
-            UIInitializer.HealthBarEmptyPlayer2.Position = new Vector2(945, 5);
-            this.SpritesInState.Add(UIInitializer.HealthBarEmptyPlayer2);
-
-            UIInitializer.HealthbarFullPlayer2.Position = new Vector2(950, 10);
-            this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer2);
-
-            UIInitializer.SnowballBarEmptyPlayer2.Position = new Vector2(950, 45);
-            this.SpritesInState.Add(UIInitializer.SnowballBarEmptyPlayer2);
-
-            UIInitializer.SnowballBarFullPlayer2.Position = new Vector2(950, 45);
-            this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer2);
         }
 
         private bool IsDone { get; set; }
@@ -61,6 +25,42 @@
             // Initializing Animations and Sprites
             if (!this.IsInitialized)
             {
+                // Creating Background
+                this.SpritesInState.Add(StateMachine.CurrentLevel.LevelBackground);
+
+                //// Creating UI: names, healthbars and snowballBars
+                // Player 1
+                UIInitializer.Player1Name.Position = new Vector2(20, 0);
+                this.SpritesInState.Add(UIInitializer.Player1Name);
+
+                UIInitializer.HealthBarEmptyPlayer1.Position = new Vector2(175, 5);
+                this.SpritesInState.Add(UIInitializer.HealthBarEmptyPlayer1);
+
+                UIInitializer.HealthbarFullPlayer1.Position = new Vector2(180, 10);
+                this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer1);
+
+                UIInitializer.SnowballBarEmptyPlayer1.Position = new Vector2(180, 45);
+                this.SpritesInState.Add(UIInitializer.SnowballBarEmptyPlayer1);
+
+                UIInitializer.SnowballBarFullPlayer1.Position = new Vector2(180, 45);
+                this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer1);
+
+                // Player 2
+                UIInitializer.Player2Name.Position = new Vector2(790, 0);
+                this.SpritesInState.Add(UIInitializer.Player2Name);
+
+                UIInitializer.HealthBarEmptyPlayer2.Position = new Vector2(945, 5);
+                this.SpritesInState.Add(UIInitializer.HealthBarEmptyPlayer2);
+
+                UIInitializer.HealthbarFullPlayer2.Position = new Vector2(950, 10);
+                this.SpritesInState.Add(UIInitializer.HealthbarFullPlayer2);
+
+                UIInitializer.SnowballBarEmptyPlayer2.Position = new Vector2(950, 45);
+                this.SpritesInState.Add(UIInitializer.SnowballBarEmptyPlayer2);
+
+                UIInitializer.SnowballBarFullPlayer2.Position = new Vector2(950, 45);
+                this.SpritesInState.Add(UIInitializer.SnowballBarFullPlayer2);
+
                 // Player animation
                 foreach (var player in StateMachine.CurrentLevel.ListOfPlayers)
                 {

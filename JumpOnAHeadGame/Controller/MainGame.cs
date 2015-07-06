@@ -20,15 +20,15 @@
             Globals.Content = this.Content;
             Globals.Content.RootDirectory = "Content";
 
-            this.IsMouseVisible = true;
-
             Window.Title = "Snow Fighter";
 
             Globals.Graphics.PreferredBackBufferWidth = 1280;
             Globals.Graphics.PreferredBackBufferHeight = 1024;
 
+            this.IsMouseVisible = false;
+
             // For Later
-            // Globals.Graphics.IsFullScreen = true;
+            // Globals.Graphics.IsFullScreen = false;
         }
 
         protected override void Initialize()

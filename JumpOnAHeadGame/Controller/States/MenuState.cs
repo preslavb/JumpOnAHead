@@ -91,6 +91,7 @@
                                 SoundManager.Play(Globals.ChosenSound);
                                 this.NextState = new UpdateState(this);
 
+                                StateMachine.CurrentLevel = Globals.ListOfLevels[Globals.Rng.Next(0, 3)];
                                 StateMachine.CurrentLevel.Initialize();
                             }
                         }
@@ -103,6 +104,7 @@
                         UIInitializer.OptionsButton.ChangeToHoverImage();
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
+                            Globals.Graphics.ToggleFullScreen();
                         }
 
                         break;

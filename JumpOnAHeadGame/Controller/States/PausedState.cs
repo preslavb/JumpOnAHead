@@ -99,6 +99,7 @@
 
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
+                            Globals.Graphics.ToggleFullScreen();
                         }
 
                         break;
