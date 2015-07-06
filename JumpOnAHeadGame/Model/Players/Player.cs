@@ -8,14 +8,14 @@
 
     public class Player
     {
-        private const float FRICTION_FORCE = 0.1f;
-        private const float MAX_PLAYER_SPEED = 10;
+        private const float FRICTION_FORCE = 0.08f;
+        private const float MAX_PLAYER_SPEED = 8;
         private const float PLAYER_ACCELERATION = 0.1f;
         private const int LEFT_BOUND = 0;
         private const int RIGHT_BOUND = 1280;
-        private const float FALL_VELOCITY = 7;
+        private const float FALL_VELOCITY = 6;
         private const float JUMP_RANGE = 400;
-        private const float JUMP_SPEED = 18;
+        private const float JUMP_SPEED = 16;
 
         public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position, Animation animation, bool isFacingRight)
         {
@@ -139,8 +139,10 @@
                                 this.JumpHeight = JUMP_RANGE;
                             }
                         }
-
-                        this.FixAcceleration();
+                        if (!Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) && !Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]))
+                        {
+                            this.FixAcceleration();
+                        }
                     }
 
                     if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
@@ -149,6 +151,13 @@
                         {
                             this.IsShooting = true;
                             this.Snowballs--;
+                        }
+                    }
+                    if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Held)
+                    {
+                        if (!Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) && !Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]))
+                        {
+                            this.FixAcceleration();
                         }
                     }
                 }
