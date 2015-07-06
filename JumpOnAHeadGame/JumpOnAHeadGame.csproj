@@ -56,6 +56,7 @@
     <Compile Include="Controller\States\UpdateState.cs" />
     <Compile Include="Model\Level.cs" />
     <Compile Include="Model\LevelOne.cs" />
+    <Compile Include="Model\LevelThree.cs" />
     <Compile Include="Model\LevelTwo.cs" />
     <Compile Include="Model\Players\Block.cs" />
     <Compile Include="Model\Players\Player.cs" />
