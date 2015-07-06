@@ -24,10 +24,9 @@
             {
                 this.NextState = this;
 
-
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
-                    if (key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                    if ((key.Button == Keys.Enter || key.Button == Keys.Escape) && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.IsDone = true;
                         this.NextState = new MenuState(this);

@@ -64,6 +64,8 @@
             {
                 this.NextState = this;
 
+                CheckForPause();
+
                 // Creating blocks
                 foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
                 {
@@ -74,6 +76,20 @@
                         block.Bounds = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.Texture.Width, block.Sprite.Texture.Height);
                         this.SpritesInState.Add(block.Sprite);
                     }
+                }
+
+                // Creating Piles of snow
+                foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
+                {
+                    if (!pile.IsDrawn)
+                    {
+                        pile.IsDrawn = true;
+                        pile.Sprite.Position = pile.Position;
+                        pile.Bounds = new Rectangle((int)pile.Position.X, (int)pile.Position.Y, pile.Sprite.Texture.Width, pile.Sprite.Texture.Height);
+                        this.SpritesInState.Add(pile.Sprite);
+                    }
+                    // Snowballs refill
+                    pile.RefillSnowballs(StateMachine.CurrentLevel.ListOfPlayers);
                 }
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
@@ -155,6 +171,18 @@
             }
         }
 
+        private void CheckForPause()
+        {
+            foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
+            {
+                if (key.Button == Keys.Escape && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                {
+                    this.IsDone = true;
+                    this.NextState = new PausedState(this);
+                }
+            }
+        }
+
         public override void Draw(AbstractRenderer renderer)
         {
 
@@ -174,19 +202,6 @@
             //         Globals.Graphics.GraphicsDevice.Clear(Color.Green);
             //     }    
             // }
-            foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
-            {
-                if (key.Button == Keys.P && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
-                {
-                    this.IsDone = !this.IsDone;
-                }
-
-                if (key.Button == Keys.Escape && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
-                {
-                    this.IsDone = !this.IsDone;
-                    this.NextState = new MenuState(this);
-                }
-            }
         }
     }
 }

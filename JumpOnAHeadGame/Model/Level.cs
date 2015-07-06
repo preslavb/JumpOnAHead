@@ -19,6 +19,8 @@
 
         public List<Block> ListOfBlocks;
 
+        public List<PileOfSnow> ListOfPilesOfSnow;
+
         public void Initialize()
         {
             Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), true);
@@ -27,6 +29,11 @@
             ListOfPlayers = new List<Player> { Player1, Player2 };
 
             ListOfSnowballs = new List<Snowball>();
+
+            ListOfPilesOfSnow = new List<PileOfSnow>
+            {
+                new PileOfSnow(new Vector2(500, 880), UIInitializer.CreateSprite("PileOfSnow")), 
+            };
 
             ListOfBlocks = new List<Block> 
             { 

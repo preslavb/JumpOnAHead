@@ -20,6 +20,7 @@
         public static Sprite MenuBackground = CreateSprite("MenuBackground");
         public static Sprite LevelBackground = CreateSprite("LevelBackground");
         public static Sprite GameOverBackground = CreateSprite("GameOverBackground");
+        public static Sprite PausedBackground = CreateSprite("PausedBackground");
 
         public static Sprite Player1Name = CreateSprite("Player1");
         public static Sprite Player2Name = CreateSprite("Player2");
@@ -41,9 +42,11 @@
         public static List<Sprite> ListOfSnowballBars = new List<Sprite> { SnowballBarFullPlayer1, SnowballBarFullPlayer2 };
 
         public static Button StartButton = CreateButton("StartNormal", "StartHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 275));
+        public static Button ResumeButton = CreateButton("ResumeNormal", "ResumeHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 275));
         public static Button OptionsButton = CreateButton("OptionsNormal", "OptionsHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 375));
         public static Button CreditsButton = CreateButton("CreditsNormal", "CreditsHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 475));
         public static Button ExitButton = CreateButton("ExitNormal", "ExitHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 775));
+        public static Button ExitToMenuButton = CreateButton("ExitToMenuNormal", "ExitToMenuHover", new Vector2((Globals.Graphics.PreferredBackBufferWidth - 300) / 2, 775));
 
         //// public static Tile IceTile1 = CreateTile("IceTile", new Vector2(150, 50),0.2f);
 
