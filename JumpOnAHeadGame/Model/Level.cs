@@ -10,10 +10,10 @@
 
     public abstract class Level
     {
-        public Sprite LevelBackground;
-
         public static Player Player1;
         public static Player Player2;
+
+        public Sprite LevelBackground;
 
         public List<Player> ListOfPlayers;
 

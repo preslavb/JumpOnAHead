@@ -44,6 +44,7 @@
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
+
             helper[name].Volume = 0.2f;
             helper[name].Play();
         }
@@ -54,6 +55,7 @@
             {
                 SoundManager.AddToHelper(name, effects[name].CreateInstance());
             }
+
             helper[name].Volume = volume;
             helper[name].Play();
         }
@@ -90,11 +92,11 @@
 
         public static SoundState GetState(string name)
         {
-            if(helper[name].State == SoundState.Playing)
+            if (helper[name].State == SoundState.Playing)
             {
                 return SoundState.Playing;
             }
-            if(helper[name].State == SoundState.Stopped)
+            else if (helper[name].State == SoundState.Stopped)
             {
                 return SoundState.Stopped;
             }
@@ -103,6 +105,7 @@
                 return SoundState.Paused;
             }
         }
+
         private static void AddToHelper(string name, SoundEffectInstance effect)
         {
             helper.Add(name, effect);

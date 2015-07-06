@@ -1,23 +1,24 @@
-﻿using JumpOnAHeadGame.Model.Players;
-using JumpOnAHeadGame.View;
-using JumpOnAHeadGame.View.UI;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace JumpOnAHeadGame.Model
+﻿namespace JumpOnAHeadGame.Model
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using JumpOnAHeadGame.Model.Players;
+    using JumpOnAHeadGame.View;
+    using JumpOnAHeadGame.View.UI;
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Input;
+
     public class LevelThree : Level
     {
         public override void Initialize()
         {
-            LevelBackground = UIInitializer.CreateSprite("Level3Background");
+            this.LevelBackground = UIInitializer.CreateSprite("Level3Background");
 
-            Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), AnimationFactory.CreatePlayerAnimation(Color.Aquamarine), true);
-            Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), AnimationFactory.CreatePlayerAnimation(Color.Peru), false); this.ListOfPlayers = new List<Player> { Player1, Player2 };
+            LevelThree.Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), AnimationFactory.CreatePlayerAnimation(Color.Aquamarine), true);
+            LevelThree.Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), AnimationFactory.CreatePlayerAnimation(Color.Peru), false); 
+            this.ListOfPlayers = new List<Player> { Player1, Player2 };
 
             this.ListOfSnowballs = new List<Snowball>();
 

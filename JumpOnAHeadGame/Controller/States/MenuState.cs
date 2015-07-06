@@ -56,8 +56,8 @@
                     if (key.Button == Keys.Down && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.MenuId++;
-                        SoundManager.Play("MenuMove",1.0f);
-                        if(this.MenuId == 5)
+                        SoundManager.Play("MenuMove", 1.0f);
+                        if (this.MenuId == 5)
                         {
                             this.MenuId = 1;
                         }
@@ -66,12 +66,11 @@
                     if (key.Button == Keys.Up && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         this.MenuId--;
-                        SoundManager.Play("MenuMove",1.0f);
+                        SoundManager.Play("MenuMove", 1.0f);
                         if (this.MenuId == 0)
                         {
                             this.MenuId = 4;
                         }
-
                     }
                 }
 

@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.Managers;
+    using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
-    using JumpOnAHeadGame.View.UI;
 
     public class Player
     {
@@ -33,6 +33,7 @@
             this.IsGrounded = false;
             this.PlayerAnimation = animation;
         }
+
         public Animation PlayerAnimation { get; set; }
 
         public Vector2 Position { get; set; }
@@ -139,6 +140,7 @@
                                 this.JumpHeight = JUMP_RANGE;
                             }
                         }
+
                         if (!Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) && !Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]))
                         {
                             this.FixAcceleration();
@@ -153,6 +155,7 @@
                             this.Snowballs--;
                         }
                     }
+
                     if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Held)
                     {
                         if (!Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) && !Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]))

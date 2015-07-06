@@ -67,6 +67,7 @@
                 {
                     this.SpritesInState.Add(player.PlayerAnimation);
                 }
+
                 // Creating blocks
                 foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
                 {
@@ -82,11 +83,13 @@
                     pile.Bounds = new Rectangle((int)pile.Position.X, (int)pile.Position.Y, pile.Sprite.Texture.Width, pile.Sprite.Texture.Height);
                     this.SpritesInState.Add(pile.Sprite);
                 }
+
                 // Creating snowballs that are inflight
                 foreach (var snowball in StateMachine.CurrentLevel.ListOfSnowballs)
                 {
                     this.SpritesInState.Add(snowball.Sprite);
                 }
+
                 this.IsInitialized = true;
             }
 
@@ -181,15 +184,6 @@
             }
         }
 
-        private void PlaySound()
-        {
-            SoundState state = SoundManager.GetState(Globals.ChosenSound);
-            if(state == SoundState.Stopped)
-            {
-                SoundManager.Play(Globals.ChosenSound);
-            }
-        }
-
         public override void Draw(AbstractRenderer renderer)
         {
             renderer.DrawState(this.SpritesInState);
@@ -200,6 +194,15 @@
             foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
             {
                 pile.RefillSnowballs(StateMachine.CurrentLevel.ListOfPlayers);
+            }
+        }
+
+        private void PlaySound()
+        {
+            SoundState state = SoundManager.GetState(Globals.ChosenSound);
+            if (state == SoundState.Stopped)
+            {
+                SoundManager.Play(Globals.ChosenSound);
             }
         }
 
