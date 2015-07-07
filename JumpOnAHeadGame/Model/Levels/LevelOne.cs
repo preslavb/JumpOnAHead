@@ -95,14 +95,12 @@
                 new Block(new Vector2(1120, 700), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(1200, 700), UIInitializer.CreateSprite("IceBlock")),
                 //// LEFT CUBE LINE
-                new Block(new Vector2(0, 300), UIInitializer.CreateSprite("IceCube")),
-                new Block(new Vector2(0, 350), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(0, 400), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(40, 400), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(0, 450), UIInitializer.CreateSprite("IceCube")),   
                 new Block(new Vector2(0, 500), UIInitializer.CreateSprite("IceCube")),               
                 //// RIGHT CUBE LINE
-                new Block(new Vector2(1240, 300), UIInitializer.CreateSprite("IceCube")),
-                new Block(new Vector2(1240, 350), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(1200, 400), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 400), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 450), UIInitializer.CreateSprite("IceCube")),
                 new Block(new Vector2(1240, 500), UIInitializer.CreateSprite("IceCube")),
@@ -123,15 +121,13 @@
                 new Block(new Vector2(520, 380), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(680, 380), UIInitializer.CreateSprite("IceBlock")),
                 //// Right central blocks
-                new Block(new Vector2(980, 350), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(1040, 350), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(1120, 350), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(1200, 300), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1200, 350), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1040, 400), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1120, 400), UIInitializer.CreateSprite("IceBlock")),
                 //// Left central blocks
-                new Block(new Vector2(0, 300), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(80, 350), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(160, 350), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(220, 350), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(0, 350), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(80, 400), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(160, 400), UIInitializer.CreateSprite("IceBlock")),
             };
         }
     }

@@ -55,6 +55,7 @@
             }
             else
             {
+                SoundManager.Play("SnowballHit");
                 this.IsMelting = true;
             }
         }

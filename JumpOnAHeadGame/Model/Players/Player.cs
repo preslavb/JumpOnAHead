@@ -14,9 +14,11 @@
         private const float PLAYER_ACCELERATION = 0.1f;
         private const int LEFT_BOUND = 0;
         private const int RIGHT_BOUND = 1280;
-        private const float FALL_VELOCITY = 6;
+        private const float FALL_VELOCITY = 7;
         private const float JUMP_RANGE = 400;
-        private const float JUMP_SPEED = 16;
+        private const float JUMP_SPEED = 15;
+        private const int DEFAULT_SNOWBALLS = 3;
+        private const int MAX_HEALTH = 100;
 
         public Player(Keys moveLeft, Keys moveRight, Keys jump, Keys dash, Vector2 position, Animation animation, bool isFacingRight)
         {
@@ -29,8 +31,8 @@
             this.Controls.Add("Jump", jump);
             this.Controls.Add("Shoot", dash);
             this.Position = position;
-            this.Health = 100;
-            this.Snowballs = 5;
+            this.Health = MAX_HEALTH;
+            this.Snowballs = DEFAULT_SNOWBALLS;
             this.IsGrounded = false;
             this.PlayerAnimation = animation;
         }
@@ -177,7 +179,7 @@
                 this.FixAcceleration();
             }
 
-            // Should do a check for collision
+            // Collision
             if ((this.Bounds.Left + (this.Bounds.Width / 2)) + this.Acceleration.X < LEFT_BOUND)
             {
                 this.Position = new Vector2(RIGHT_BOUND - (this.Bounds.Width / 2), this.Position.Y);
@@ -188,7 +190,7 @@
             }
             else
             {
-                int tempDistance = this.Acceleration.X > 0 ? 1 : -1; // hack
+                int tempDistance = this.Acceleration.X > 0 ? 2 : -2; // hack
                 Rectangle tempRect = new Rectangle((int)(this.Bounds.X + (this.Acceleration.X + tempDistance)), (int)this.Bounds.Y, this.Bounds.Width, this.Bounds.Height);
                 foreach (var block in gameObjects)
                 {

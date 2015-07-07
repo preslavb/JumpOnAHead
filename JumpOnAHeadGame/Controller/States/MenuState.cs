@@ -87,7 +87,14 @@
                                 SoundManager.Play(Globals.ChosenSound);
                                 this.NextState = new UpdateState(this);
 
-                                StateMachine.CurrentLevel = Globals.ListOfLevels[Globals.Rng.Next(0, 3)];
+                                int randomLevel = 0;
+                                do
+                                {
+                                    randomLevel = Globals.Rng.Next(0, 3);
+                                }
+                                while (Globals.ListOfLevels[randomLevel] == StateMachine.CurrentLevel);
+
+                                StateMachine.CurrentLevel = Globals.ListOfLevels[randomLevel];
                                 StateMachine.CurrentLevel.Initialize();
                             }
                         }

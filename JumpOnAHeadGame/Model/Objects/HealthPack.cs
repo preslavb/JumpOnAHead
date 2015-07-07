@@ -1,6 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
     using System.Collections.Generic;
+    using JumpOnAHeadGame.Controller;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
@@ -13,7 +14,8 @@
             this.Position = position;
             this.Animation = animation;
             this.IsDrawn = false;
-            this.IsActive = true;
+            this.IsActive = false;
+            this.TimeToSpawn = Globals.Rng.Next(350, 700);
         }
 
         public Vector2 Position { get; set; }
@@ -25,6 +27,8 @@
         public bool IsActive { get; set; }
 
         public bool IsDrawn { get; set; }
+
+        public int TimeToSpawn { get; set; }
 
         public void ActOnPlayer(List<Player> players)
         {

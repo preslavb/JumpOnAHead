@@ -7,6 +7,9 @@
 
     public class PileOfSnow : GameObject
     {
+        private const int MAX_PLAYER_SNOWBALLS = 5;
+        private const int SNOWBALL_REFILL_TIME = 30;
+
         public PileOfSnow(Vector2 position, Sprite sprite)
             : base(position, sprite)
         {
@@ -21,9 +24,9 @@
             {
                 if (this.Bounds.Intersects(player.Bounds))
                 {
-                    if (player.Snowballs < 5)
+                    if (player.Snowballs < MAX_PLAYER_SNOWBALLS)
                     {
-                        if (this.RefillTime < 30)
+                        if (this.RefillTime < SNOWBALL_REFILL_TIME)
                         {
                             this.RefillTime++;
                         }

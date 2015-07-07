@@ -47,8 +47,23 @@
                     }
                     else
                     {
-                        this.SpritesInState.Remove(healthpack.Animation);
-                        healthpack.IsDrawn = false;
+                        if (healthpack.IsDrawn)
+                        {
+                            this.SpritesInState.Remove(healthpack.Animation);
+                            healthpack.IsDrawn = false;
+                        }
+                        else
+                        {
+                            if (healthpack.TimeToSpawn > 0)
+                            {
+                                healthpack.TimeToSpawn--;
+                            }
+                            else
+                            {
+                                healthpack.IsActive = true;
+                                healthpack.TimeToSpawn = Globals.Rng.Next(500, 1200);
+                            }
+                        }
                     }
                 }
 

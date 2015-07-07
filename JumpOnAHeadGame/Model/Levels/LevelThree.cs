@@ -25,8 +25,8 @@
 
             this.ListOfHealthPacks = new List<HealthPack>
             {
-                new HealthPack(new Vector2(10, 230), AnimationFactory.CreateHealthPack()), 
-                new HealthPack(new Vector2(1200, 230), AnimationFactory.CreateHealthPack()),
+                new HealthPack(new Vector2(50, 230), AnimationFactory.CreateHealthPack()), 
+                new HealthPack(new Vector2(1170, 230), AnimationFactory.CreateHealthPack()),
             };
 
             this.ListOfGameObjects = new List<GameObject> 
@@ -122,11 +122,17 @@
                 new Block(new Vector2(950, 580), UIInitializer.CreateSprite("IceBlock")),
                 
                 //// Left blocks
-                new Block(new Vector2(0, 330), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(60, 380), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(0, 230), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(0, 280), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(0, 330), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(40, 330), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(100, 380), UIInitializer.CreateSprite("IceBlock")),
                 //// Right blocks
-                new Block(new Vector2(1200, 330), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(1140, 380), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1240, 230), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(1240, 280), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(1240, 330), UIInitializer.CreateSprite("IceCube")),
+                new Block(new Vector2(1160, 330), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(1080, 380), UIInitializer.CreateSprite("IceBlock")),
             };
         }
     }
