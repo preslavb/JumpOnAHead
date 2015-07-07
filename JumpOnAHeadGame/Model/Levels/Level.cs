@@ -11,18 +11,19 @@
 
     public abstract class Level
     {
-        public static Player Player1;
-        public static Player Player2;
+        public static Player Player1 { get; set; }
 
-        public Sprite LevelBackground;
+        public static Player Player2 { get; set; }
 
-        public List<Player> ListOfPlayers;
+        public Sprite LevelBackground { get; set; }
 
-        public List<GameObject> ListOfGameObjects;
+        public List<Player> ListOfPlayers { get; set; }
 
-        public List<Snowball> ListOfSnowballs;
+        public List<GameObject> ListOfGameObjects { get; set; }
 
-        public List<HealthPack> ListOfHealthPacks;
+        public List<Snowball> ListOfSnowballs { get; set; }
+
+        public List<HealthPack> ListOfHealthPacks { get; set; }
 
         public abstract void Initialize();
     }

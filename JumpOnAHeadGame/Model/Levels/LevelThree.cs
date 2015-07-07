@@ -114,6 +114,7 @@
                 new Block(new Vector2(440, 480), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(520, 480), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(600, 430), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(600, 480), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(680, 480), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(760, 480), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(840, 530), UIInitializer.CreateSprite("IceBlock")),

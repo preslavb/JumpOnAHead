@@ -67,13 +67,13 @@
                     UIInitializer.ListOfSnowballBars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfSnowballBars[i].SourceRectangle.X, UIInitializer.ListOfSnowballBars[i].SourceRectangle.Y, 20 * StateMachine.CurrentLevel.ListOfPlayers[i].Snowballs, UIInitializer.ListOfSnowballBars[i].SourceRectangle.Height);
 
                     // Adjusting Healthbars 
-                    UIInitializer.ListOfHealthbars[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars[i].SourceRectangle.X, UIInitializer.ListOfHealthbars[i].SourceRectangle.Y, 3 * StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars[i].SourceRectangle.Height);
+                    UIInitializer.ListOfHealthbars1[i].SourceRectangle = new Rectangle(UIInitializer.ListOfHealthbars1[i].SourceRectangle.X, UIInitializer.ListOfHealthbars1[i].SourceRectangle.Y, 3 * StateMachine.CurrentLevel.ListOfPlayers[i].Health, UIInitializer.ListOfHealthbars1[i].SourceRectangle.Height);
 
                     // Game Over Condition
-                    if (UIInitializer.ListOfHealthbars[i].SourceRectangle.Width == 0)
+                    if (UIInitializer.ListOfHealthbars1[i].SourceRectangle.Width == 0)
                     {
                         this.IsDone = true;
-                        this.NextState = new GameOverState(this,i);
+                        this.NextState = new GameOverState(this, i);
                         //// Stop sounds
                         for (int m = 1; m < 7; m++)
                         {
@@ -134,6 +134,11 @@
                     }
                 }
             }
+        }
+
+        public override void Draw(AbstractRenderer renderer)
+        {
+            renderer.DrawState(this.SpritesInState);
         }
 
         private void Initialization()
@@ -209,11 +214,6 @@
 
                 this.IsInitialized = true;
             }
-        }
-
-        public override void Draw(AbstractRenderer renderer)
-        {
-            renderer.DrawState(this.SpritesInState);
         }
 
         private void PlaySound()

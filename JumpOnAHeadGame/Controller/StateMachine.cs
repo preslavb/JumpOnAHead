@@ -6,11 +6,13 @@
 
     public static class StateMachine
     {
-        public static InitialState InitialState;
-        public static MenuState MenuState;
-        public static UpdateState UpdateState;
+        public static InitialState InitialState { get; set; }
 
-        public static Level CurrentLevel;
+        public static MenuState MenuState { get; set; }
+
+        public static UpdateState UpdateState { get; set; }
+
+        public static Level CurrentLevel { get; set; }
 
         public static List<State> ListOfStates { get; set; }
 

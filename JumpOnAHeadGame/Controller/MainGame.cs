@@ -7,7 +7,6 @@
 
     public class Game1 : Game
     {
-        public static Game1 Self;
         private MonoGameRenderer renderer;
 
         public Game1()
@@ -28,6 +27,8 @@
             // For Later
             // Globals.Graphics.IsFullScreen = true;
         }
+
+        public static Game1 Self { get; private set; }
 
         protected override void Initialize()
         {

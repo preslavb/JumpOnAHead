@@ -7,7 +7,7 @@
 
     public class GameOverState : State
     {
-        public GameOverState(State nextState,int loserIndex)
+        public GameOverState(State nextState, int loserIndex)
             : base(nextState)
         {
             this.NextState = nextState;

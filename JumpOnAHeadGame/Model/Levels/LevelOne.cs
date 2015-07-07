@@ -111,8 +111,12 @@
                 new Block(new Vector2(560, 580), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(640, 580), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(720, 580), UIInitializer.CreateSprite("IceBlock")),
-                new Block(new Vector2(780, 620), UIInitializer.CreateSprite("IceBlock")),
                 new Block(new Vector2(420, 620), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(480, 620), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(560, 620), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(640, 620), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(720, 620), UIInitializer.CreateSprite("IceBlock")),
+                new Block(new Vector2(780, 620), UIInitializer.CreateSprite("IceBlock")),
 
                 //// Central upper
                 new Block(new Vector2(600, 380), UIInitializer.CreateSprite("IceBlock")),
