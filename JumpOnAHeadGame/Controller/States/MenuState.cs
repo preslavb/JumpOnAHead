@@ -5,7 +5,7 @@
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework.Input;
 
-    public class MenuState : State , IMenu
+    public class MenuState : State, IMenu
     {
         private int menuId;
 

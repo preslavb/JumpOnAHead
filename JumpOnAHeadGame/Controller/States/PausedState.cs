@@ -5,7 +5,7 @@
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework.Input;
 
-    public class PausedState : State , IMenu
+    public class PausedState : State, IMenu
     {
         private int menuId;
 

@@ -1,7 +1,8 @@
-﻿using JumpOnAHeadGame.View.UI;
-using Microsoft.Xna.Framework;
-namespace JumpOnAHeadGame.Model.Interfaces
+﻿namespace JumpOnAHeadGame.Model.Interfaces
 {
+    using JumpOnAHeadGame.View.UI;
+    using Microsoft.Xna.Framework;
+
     public interface IObject
     {
         Vector2 Position { get; }

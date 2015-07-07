@@ -13,11 +13,11 @@
             this.IsDone = false;
         }
 
-        protected bool IsDone { get; set; }
-
         public State NextState { get; set; }
 
         public List<IRenderable> SpritesInState { get; set; }
+
+        protected bool IsDone { get; set; }
 
         public abstract void Execute();
 
