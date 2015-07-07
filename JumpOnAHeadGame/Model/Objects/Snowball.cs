@@ -1,10 +1,10 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
+    using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
-    using System.Collections.Generic;
 
     public class Snowball : GameObject
     {
@@ -72,15 +72,18 @@
             }
         }
 
-        public void ActOnBlock(List<Block> blocks)
+        public void ActOnBlock(List<GameObject> gameObjects)
         {
-            foreach (var block in blocks)
+            foreach (var gameObject in gameObjects)
             {
-                if (this.Bounds.Intersects(block.Bounds))
+                if (gameObject.GetType() == typeof(Block))
                 {
-                    SoundManager.Play("SnowballHitBlock");
-                    this.IsMelting = true;
-                } 
+                    if (this.Bounds.Intersects(gameObject.Bounds))
+                    {
+                        SoundManager.Play("SnowballHitBlock");
+                        this.IsMelting = true;
+                    }
+                }
             }
         }
     }

@@ -5,23 +5,27 @@
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
 
-    public class HealthPack : GameObject
+    public class HealthPack
     {
         public HealthPack(Vector2 position, Animation animation)
-            :base(position)
         {
+            this.Position = position;
             this.Animation = animation;
             this.IsDrawn = false;
             this.IsActive = true;
         }
 
+        public Vector2 Position { get; set; }
+
         public Animation Animation { get; set; }
+
+        public Rectangle Bounds { get; set; }
 
         public bool IsActive { get; set; }
 
         public bool IsDrawn { get; set; }
 
-        public override void ActOnPlayer(List<Player> players)
+        public void ActOnPlayer(List<Player> players)
         {
             foreach (var player in players)
             {
@@ -33,6 +37,7 @@
                     {
                         player.Health = 100;
                     }
+
                     this.IsActive = false;
                 }
             }

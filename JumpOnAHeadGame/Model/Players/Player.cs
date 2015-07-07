@@ -59,19 +59,22 @@
 
         public int Snowballs { get; set; }
 
-        public void Move(List<Block> blocks)
+        public void Move(List<GameObject> gameObjects)
         {
             this.State = "Idle";
 
             // Jumping
             if (this.JumpHeight > 0)
             {
-                foreach (var block in blocks)
+                foreach (var block in gameObjects)
                 {
-                    Rectangle tempRect = new Rectangle((int)this.Bounds.X, (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
-                    if (tempRect.Intersects(block.Bounds))
+                    if (block.GetType() == typeof(Block))
                     {
-                        this.JumpHeight = 0;
+                        Rectangle tempRect = new Rectangle((int)this.Bounds.X, (int)((this.Bounds.Y + FALL_VELOCITY) - JUMP_SPEED), this.Bounds.Width, this.Bounds.Height);
+                        if (tempRect.Intersects(block.Bounds))
+                        {
+                            this.JumpHeight = 0;
+                        }
                     }
                 }
 
@@ -84,12 +87,15 @@
 
             // Falling
             this.IsGrounded = false;
-            foreach (var block in blocks)
+            foreach (var block in gameObjects)
             {
-                Rectangle tempRect = new Rectangle((int)this.Bounds.X, (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
-                if (tempRect.Intersects(block.Bounds))
+                if (block.GetType() == typeof(Block))
                 {
-                    this.IsGrounded = true;
+                    Rectangle tempRect = new Rectangle((int)this.Bounds.X, (int)(this.Bounds.Y + FALL_VELOCITY), this.Bounds.Width, this.Bounds.Height);
+                    if (tempRect.Intersects(block.Bounds))
+                    {
+                        this.IsGrounded = true;
+                    }
                 }
             }
 
@@ -133,7 +139,7 @@
 
                     if (key.Button == this.Controls["Jump"] && key.ButtonState == KeyboardButtonState.KeyState.Held)
                     {
-                        foreach (var block in blocks)
+                        foreach (var block in gameObjects)
                         {
                             if (this.IsGrounded)
                             {
@@ -184,11 +190,14 @@
             {
                 int tempDistance = this.Acceleration.X > 0 ? 1 : -1; // hack
                 Rectangle tempRect = new Rectangle((int)(this.Bounds.X + (this.Acceleration.X + tempDistance)), (int)this.Bounds.Y, this.Bounds.Width, this.Bounds.Height);
-                foreach (var block in blocks)
+                foreach (var block in gameObjects)
                 {
-                    if (tempRect.Intersects(block.Bounds))
+                    if (block.GetType() == typeof(Block))
                     {
-                        this.Acceleration = new Vector2(0, 0);
+                        if (tempRect.Intersects(block.Bounds))
+                        {
+                            this.Acceleration = new Vector2(0, 0);
+                        }
                     }
                 }
 
