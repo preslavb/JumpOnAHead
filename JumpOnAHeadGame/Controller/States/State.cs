@@ -10,11 +10,14 @@
         {
             this.NextState = nextState;
             this.SpritesInState = new List<IRenderable>();
+            this.IsDone = false;
         }
 
         public State NextState { get; set; }
 
         public List<IRenderable> SpritesInState { get; set; }
+
+        protected bool IsDone { get; set; }
 
         public abstract void Execute();
 

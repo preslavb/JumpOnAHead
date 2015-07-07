@@ -1,10 +1,11 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
+    using JumpOnAHeadGame.Controller.Interfaces;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework.Input;
 
-    public class MenuState : State
+    public class MenuState : State, IMenu
     {
         private int menuId;
 
@@ -12,7 +13,6 @@
             : base(nextState)
         {
             this.NextState = nextState;
-            this.IsDone = false;
 
             this.SpritesInState.Add(UIInitializer.MenuBackground);
             this.SpritesInState.Add(UIInitializer.StartButton.Sprite);
@@ -23,7 +23,7 @@
             this.MenuId = 1;
         }
 
-        private int MenuId
+        public int MenuId
         {
             get
             {
@@ -38,8 +38,6 @@
                 }
             }
         }
-
-        private bool IsDone { get; set; }
 
         public override void Execute()
         {

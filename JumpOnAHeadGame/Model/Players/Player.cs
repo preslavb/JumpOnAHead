@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.Managers;
+    using JumpOnAHeadGame.Model.Interfaces;
     using JumpOnAHeadGame.Model.Objects;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
