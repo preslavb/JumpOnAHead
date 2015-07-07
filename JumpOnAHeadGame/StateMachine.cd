@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JumpOnAHeadGame.Controller.States.CreditsState" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\States\CreditsState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.GameOverState" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\States\GameOverState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.InitialState" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\States\InitialState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.MenuState" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAABAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Controller\States\MenuState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.PausedState" Collapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAABAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Controller\States\PausedState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.UpdateState" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAgACAAAAAAAAAAABACAAAA=</HashCode>
+      <FileName>Controller\States\UpdateState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.State" Collapsed="true">
+    <Position X="8.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAIAAAgQAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controller\States\State.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="JumpOnAHeadGame.Controller.Interface.IMenu" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Interface\IMenu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

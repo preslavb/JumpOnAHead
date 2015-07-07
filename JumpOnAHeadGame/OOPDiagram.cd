@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JumpOnAHeadGame.Controller.EntryPoint" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Controller\EntryPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.Globals" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAEAAAgAAAAAAAAAIAAAACAAAAgAAQAAAAAAABAA=</HashCode>
+      <FileName>Controller\Globals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.Game1" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAwAAAAABAAAAAAAAAAAAAAAAAAAAgAQ=</HashCode>
+      <FileName>Controller\MainGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.StateMachine" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAAAAAAQAAAgAAACAAAAAEAAAAAAAABAAABAA=</HashCode>
+      <FileName>Controller\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.Managers.InputHandler" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAIAAwAABAAAAAAAAAAAATCAAgAAAAAACAA=</HashCode>
+      <FileName>Controller\Managers\InputHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.Managers.KeyboardButtonState" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Managers\KeyboardButtonState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.Managers.SoundManager" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAEEAQAAAAAAAAAAAAAAEAAAAAAAAoAAAAAgAAAQ=</HashCode>
+      <FileName>Controller\Managers\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.CreditsState" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\States\CreditsState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.GameOverState" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\States\GameOverState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.InitialState" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\States\InitialState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.MenuState" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAABAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Controller\States\MenuState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.PausedState" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAAAAAAABAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Controller\States\PausedState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.State" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAIAAAgQAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controller\States\State.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Controller.States.UpdateState" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAAgACAAAAAAAAAAABACAAAA=</HashCode>
+      <FileName>Controller\States\UpdateState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Levels.Level" Collapsed="true">
+    <Position X="9.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEQAAAAAAAQAAwAAAAAAAAAAAAAAAAAAAAgQAAAA=</HashCode>
+      <FileName>Model\Levels\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Levels.LevelOne" Collapsed="true">
+    <Position X="7.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Levels\LevelOne.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Levels.LevelThree" Collapsed="true">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Levels\LevelThree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Levels.LevelTwo" Collapsed="true">
+    <Position X="11.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Levels\LevelTwo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Objects.Block" Collapsed="true">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Objects\Block.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Objects.GameObject" Collapsed="true">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAgA=</HashCode>
+      <FileName>Model\Objects\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Objects.HealthPack" Collapsed="true">
+    <Position X="20.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAgAAAAAQAAgkAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Model\Objects\HealthPack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Objects.PileOfSnow" Collapsed="true">
+    <Position X="11.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAAAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Objects\PileOfSnow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Objects.Snowball" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICEAAAAIQAAAAAEAEAAAAAAAAAAAAAAAAAAABAIAA=</HashCode>
+      <FileName>Model\Objects\Snowball.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.Model.Players.Player" Collapsed="true">
+    <Position X="22.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAACAAAAM4AAAAgAAEIAkAAAAAAAAQAAAAkLAlAAgA=</HashCode>
+      <FileName>Model\Players\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.AbstractRenderer" Collapsed="true">
+    <Position X="13.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AbstractRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.MonoGameRenderer" Collapsed="true">
+    <Position X="13.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MonoGameRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UIInitializer" Collapsed="true">
+    <Position X="15.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAAMKSghggMAaAoAUAgYAICFwBYAgERIQkAkAAhIQ=</HashCode>
+      <FileName>View\UIInitializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UI.Animation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAIAAAAgAAIAAgAAAAAABgAAIAoAAAIAAAA=</HashCode>
+      <FileName>View\UI\Animation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UI.AnimationFactory" Collapsed="true">
+    <Position X="17.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAACAIA=</HashCode>
+      <FileName>View\UI\AnimationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UI.AnimationState" Collapsed="true">
+    <Position X="19" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>View\UI\AnimationState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UI.Sprite" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAIAAgAEAAAABAAAAAIAAAIAAAA=</HashCode>
+      <FileName>View\UI\Sprite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UI.Models.Button" Collapsed="true">
+    <Position X="15.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAACAAAAAAAAAAAQAAAAAAgCAAA=</HashCode>
+      <FileName>View\UI\Models\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpOnAHeadGame.View.UI.Models.SplashScreenUI" Collapsed="true">
+    <Position X="17.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\UI\Models\SplashScreenUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="JumpOnAHeadGame.Controller.Interface.IMenu" Collapsed="true">
+    <Position X="18.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Interface\IMenu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="JumpOnAHeadGame.View.UI.IRenderable" Collapsed="true">
+    <Position X="15.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAIAAgAAAAAABAAAAAIAAAIAAAA=</HashCode>
+      <FileName>View\UI\IRenderable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

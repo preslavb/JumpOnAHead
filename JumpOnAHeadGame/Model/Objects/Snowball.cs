@@ -1,7 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
-    using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.Managers;
+    using System.Collections.Generic;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
