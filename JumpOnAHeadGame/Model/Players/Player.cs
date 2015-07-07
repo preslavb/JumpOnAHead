@@ -27,7 +27,7 @@
             this.Controls.Add("Move Left", moveLeft);
             this.Controls.Add("Move Right", moveRight);
             this.Controls.Add("Jump", jump);
-            this.Controls.Add("Dash", dash);
+            this.Controls.Add("Shoot", dash);
             this.Position = position;
             this.Health = 100;
             this.Snowballs = 5;
@@ -105,7 +105,7 @@
             }
 
             // Moving
-            if (Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) || Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]) || Keyboard.GetState().IsKeyDown(this.Controls["Jump"]) || Keyboard.GetState().IsKeyDown(this.Controls["Dash"]))
+            if (Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) || Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]) || Keyboard.GetState().IsKeyDown(this.Controls["Jump"]) || Keyboard.GetState().IsKeyDown(this.Controls["Shoot"]))
             {
                 foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                 {
@@ -154,7 +154,7 @@
                         }
                     }
 
-                    if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
+                    if (key.Button == this.Controls["Shoot"] && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
                     {
                         if (this.Snowballs != 0)
                         {
@@ -163,7 +163,7 @@
                         }
                     }
 
-                    if (key.Button == this.Controls["Dash"] && key.ButtonState == KeyboardButtonState.KeyState.Held)
+                    if (key.Button == this.Controls["Shoot"] && key.ButtonState == KeyboardButtonState.KeyState.Held)
                     {
                         if (!Keyboard.GetState().IsKeyDown(this.Controls["Move Left"]) && !Keyboard.GetState().IsKeyDown(this.Controls["Move Right"]))
                         {

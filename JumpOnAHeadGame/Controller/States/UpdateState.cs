@@ -73,7 +73,7 @@
                     if (UIInitializer.ListOfHealthbars[i].SourceRectangle.Width == 0)
                     {
                         this.IsDone = true;
-                        this.NextState = new GameOverState(this);
+                        this.NextState = new GameOverState(this,i);
                         //// Stop sounds
                         for (int m = 1; m < 7; m++)
                         {

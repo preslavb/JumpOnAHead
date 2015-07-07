@@ -15,6 +15,12 @@
         public static Sprite GameOverBackground = CreateSprite("GameOverBackground");
         public static Sprite PausedBackground = CreateSprite("PausedBackground");
 
+        public static Sprite CreditsSprite = CreateSprite("Credits");
+
+        public static Sprite Player1WinsSprite = CreateSprite("Player1WINS");
+        public static Sprite Player2WinsSprite = CreateSprite("Player2WINS");
+
+
         public static Sprite Player1Name = CreateSprite("Player1");
         public static Sprite Player2Name = CreateSprite("Player2");
 

@@ -2,6 +2,7 @@
 {
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
+    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Input;
 
     public class CreditsState : State
@@ -12,6 +13,8 @@
             this.NextState = nextState;
 
             this.SpritesInState.Add(UIInitializer.MenuBackground);
+            this.SpritesInState.Add(UIInitializer.CreditsSprite);
+            UIInitializer.CreditsSprite.Position = new Vector2(100, 150);
         }
 
         public override void Execute()
