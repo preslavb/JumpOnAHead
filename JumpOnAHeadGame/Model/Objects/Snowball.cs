@@ -1,11 +1,12 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
     using JumpOnAHeadGame.Controller.Managers;
+    using JumpOnAHeadGame.Model.Interfaces;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
 
-    public class Snowball
+    public class Snowball : IObject
     {
         private const int LEFT_BOUND = -40;
         private const int RIGHT_BOUND = 1240;

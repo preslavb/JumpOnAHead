@@ -13,11 +13,8 @@
             : base(nextState)
         {
             this.NextState = nextState;
-            this.IsDone = false;
             this.IsInitialized = false;
         }
-
-        private bool IsDone { get; set; }
 
         private bool IsInitialized { get; set; }
 

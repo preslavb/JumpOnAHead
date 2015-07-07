@@ -41,6 +41,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controller\Interfaces\IMenu.cs" />
     <Compile Include="Controller\Managers\InputHandler.cs" />
     <Compile Include="Controller\MainGame.cs" />
     <Compile Include="Controller\Globals.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Controller\States\PausedState.cs" />
     <Compile Include="Controller\States\State.cs" />
     <Compile Include="Controller\States\UpdateState.cs" />
+    <Compile Include="Model\Interfaces\IObject.cs" />
     <Compile Include="Model\Levels\Level.cs" />
     <Compile Include="Model\Levels\LevelOne.cs" />
     <Compile Include="Model\Levels\LevelThree.cs" />

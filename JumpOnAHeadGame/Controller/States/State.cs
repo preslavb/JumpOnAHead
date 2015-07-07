@@ -10,7 +10,10 @@
         {
             this.NextState = nextState;
             this.SpritesInState = new List<IRenderable>();
+            this.IsDone = false;
         }
+
+        protected bool IsDone { get; set; }
 
         public State NextState { get; set; }
 

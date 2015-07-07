@@ -9,12 +9,9 @@
             : base(nextState)
         {
             this.NextState = nextState;
-            this.IsDone = false;
 
             this.SpritesInState.Add(UIInitializer.SplashScreen.SplashScreen);
         }
-
-        private bool IsDone { get; set; }
 
         public override void Execute()
         {
