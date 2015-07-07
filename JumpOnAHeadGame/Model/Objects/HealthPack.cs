@@ -4,6 +4,7 @@
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
+    using JumpOnAHeadGame.Controller.Managers;
 
     public class HealthPack
     {
@@ -31,7 +32,7 @@
             {
                 if (this.Bounds.Intersects(player.Bounds))
                 {
-                    //SoundManager.Play("SnowballHit");
+                    SoundManager.Play("HealthPack");
                     player.Health += 50;
                     if (player.Health > 100)
                     {
