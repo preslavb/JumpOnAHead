@@ -10,13 +10,9 @@
             : base(nextState)
         {
             this.NextState = nextState;
-            this.IsDone = false;
 
             this.SpritesInState.Add(UIInitializer.MenuBackground);
         }
-
-        private bool IsDone { get; set; }
-
 
         public override void Execute()
         {

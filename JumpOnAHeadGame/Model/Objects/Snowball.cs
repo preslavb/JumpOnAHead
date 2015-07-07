@@ -6,7 +6,7 @@
     using Microsoft.Xna.Framework;
     using System.Collections.Generic;
 
-    public class Snowball
+    public class Snowball : GameObject
     {
         private const int LEFT_BOUND = -40;
         private const int RIGHT_BOUND = 1240;
@@ -14,18 +14,11 @@
         private const float BALL_SPEED = 16;
 
         public Snowball(Vector2 position, Sprite sprite, bool isGoingRight)
+            : base(position, sprite)
         {
-            this.Position = position;
-            this.Sprite = sprite;
             this.IsMelting = false;
             this.IsGoingRight = isGoingRight;
         }
-
-        public Vector2 Position { get; set; }
-
-        public Rectangle Bounds { get; set; }
-
-        public Sprite Sprite { get; set; }
 
         public bool IsMelting { get; set; }
 
@@ -66,7 +59,7 @@
             }
         }
 
-        public void ActOnPlayer(List<Player> players)
+        public override void ActOnPlayer(List<Player> players)
         {
             foreach (var player in players)
             {

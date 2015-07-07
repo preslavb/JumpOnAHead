@@ -5,24 +5,17 @@
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
 
-    public class PileOfSnow
+    public class PileOfSnow : GameObject
     {
         public PileOfSnow(Vector2 position, Sprite sprite)
+            :base(position, sprite)
         {
-            this.Position = position;
-            this.Sprite = sprite;
             this.RefillTime = 0;
         }
 
-        public Vector2 Position { get; set; }
-
-        public Rectangle Bounds { get; set; }
-
-        public Sprite Sprite { get; set; }
-
         public int RefillTime { get; set; }
 
-        public void ActOnPlayer(List<Player> players)
+        public override void ActOnPlayer(List<Player> players)
         {
             foreach (var player in players)
             {
