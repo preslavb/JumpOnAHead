@@ -1,6 +1,6 @@
 ﻿namespace JumpOnAHeadGame.Controller.States
 {
-    using JumpOnAHeadGame.Controller.Interfaces;
+    using JumpOnAHeadGame.Controller.Interface;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.View;
     using Microsoft.Xna.Framework.Input;

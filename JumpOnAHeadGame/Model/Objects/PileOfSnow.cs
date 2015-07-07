@@ -1,12 +1,11 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
     using System.Collections.Generic;
-    using JumpOnAHeadGame.Model.Interfaces;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
 
-    public class PileOfSnow : IObject
+    public class PileOfSnow
     {
         public PileOfSnow(Vector2 position, Sprite sprite)
         {

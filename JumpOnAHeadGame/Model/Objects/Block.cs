@@ -1,10 +1,9 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
-    using JumpOnAHeadGame.Model.Interfaces;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
 
-    public class Block : IObject
+    public class Block
     {
         public Block(Vector2 position, Sprite sprite)
         {

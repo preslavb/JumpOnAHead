@@ -1,4 +1,4 @@
-﻿namespace JumpOnAHeadGame.Controller.Interfaces
+﻿namespace JumpOnAHeadGame.Controller.Interface
 {
     using System;
     using System.Collections.Generic;
