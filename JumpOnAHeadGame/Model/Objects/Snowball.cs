@@ -1,10 +1,10 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
+    using System.Collections.Generic;
     using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
-    using System.Collections.Generic;
 
     public class Snowball : GameObject
     {

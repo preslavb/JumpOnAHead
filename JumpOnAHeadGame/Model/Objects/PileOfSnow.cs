@@ -8,7 +8,7 @@
     public class PileOfSnow : GameObject
     {
         public PileOfSnow(Vector2 position, Sprite sprite)
-            :base(position, sprite)
+            : base(position, sprite)
         {
             this.RefillTime = 0;
         }

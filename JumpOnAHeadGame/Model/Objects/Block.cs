@@ -8,7 +8,7 @@
     public class Block : GameObject
     {
         public Block(Vector2 position, Sprite sprite)
-            :base(position, sprite)
+            : base(position, sprite)
         {
         }
 

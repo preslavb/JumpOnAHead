@@ -1,6 +1,7 @@
 ﻿namespace JumpOnAHeadGame.Model.Objects
 {
     using System.Collections.Generic;
+    using JumpOnAHeadGame.Controller.Managers;
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
@@ -8,7 +9,7 @@
     public class HealthPack : GameObject
     {
         public HealthPack(Vector2 position, Animation animation)
-            :base(position)
+            : base(position)
         {
             this.Animation = animation;
             this.IsDrawn = false;
@@ -27,12 +28,13 @@
             {
                 if (this.Bounds.Intersects(player.Bounds))
                 {
-                    //SoundManager.Play("SnowballHit");
+                    SoundManager.Play("HealthPack");
                     player.Health += 50;
                     if (player.Health > 100)
                     {
                         player.Health = 100;
                     }
+
                     this.IsActive = false;
                 }
             }
