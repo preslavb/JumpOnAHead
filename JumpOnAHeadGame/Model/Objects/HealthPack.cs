@@ -5,22 +5,25 @@
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
 
-    public class PileOfSnow
+    public class HealthPack
     {
-        public PileOfSnow(Vector2 position, Sprite sprite)
+        public HealthPack(Vector2 position, Animation animation)
         {
             this.Position = position;
-            this.Sprite = sprite;
-            this.RefillTime = 0;
+            this.Animation = animation;
+            this.IsDrawn = false;
+            this.IsActive = true;
         }
 
         public Vector2 Position { get; set; }
 
         public Rectangle Bounds { get; set; }
 
-        public Sprite Sprite { get; set; }
+        public Animation Animation { get; set; }
 
-        public int RefillTime { get; set; }
+        public bool IsActive { get; set; }
+
+        public bool IsDrawn { get; set; }
 
         public void ActOnPlayer(List<Player> players)
         {
@@ -28,18 +31,13 @@
             {
                 if (this.Bounds.Intersects(player.Bounds))
                 {
-                    if (player.Snowballs < 5)
+                    //SoundManager.Play("SnowballHit");
+                    player.Health += 50;
+                    if (player.Health > 100)
                     {
-                        if (this.RefillTime < 30)
-                        {
-                            this.RefillTime++;
-                        }
-                        else
-                        {
-                            player.Snowballs++;
-                            this.RefillTime = 0;
-                        }
+                        player.Health = 100;
                     }
+                    this.IsActive = false;
                 }
             }
         }

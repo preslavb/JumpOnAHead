@@ -24,6 +24,8 @@
 
         public List<PileOfSnow> ListOfPilesOfSnow;
 
+        public List<HealthPack> ListOfHealthPacks;
+
         public abstract void Initialize();
     }
 }

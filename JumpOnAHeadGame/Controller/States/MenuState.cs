@@ -75,9 +75,10 @@
                 switch (this.MenuId)
                 {
                     case 1:
-                        UIInitializer.OptionsButton.ChangeToNormalImage();
-                        UIInitializer.ExitButton.ChangeToNormalImage();
                         UIInitializer.StartButton.ChangeToHoverImage();
+                        UIInitializer.OptionsButton.ChangeToNormalImage();
+                        UIInitializer.CreditsButton.ChangeToNormalImage();
+                        UIInitializer.ExitButton.ChangeToNormalImage();
                         foreach (KeyboardButtonState key in InputHandler.ActiveKeys)
                         {
                             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && key.ButtonState == KeyboardButtonState.KeyState.Clicked)
@@ -97,8 +98,9 @@
 
                     case 2:
                         UIInitializer.StartButton.ChangeToNormalImage();
-                        UIInitializer.CreditsButton.ChangeToNormalImage();
                         UIInitializer.OptionsButton.ChangeToHoverImage();
+                        UIInitializer.CreditsButton.ChangeToNormalImage();
+                        UIInitializer.ExitButton.ChangeToNormalImage();
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
                             Globals.Graphics.ToggleFullScreen();
@@ -107,18 +109,22 @@
                         break;
 
                     case 3:
+                        UIInitializer.StartButton.ChangeToNormalImage();
                         UIInitializer.OptionsButton.ChangeToNormalImage();
-                        UIInitializer.ExitButton.ChangeToNormalImage();
                         UIInitializer.CreditsButton.ChangeToHoverImage();
+                        UIInitializer.ExitButton.ChangeToNormalImage();
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                         {
                             SoundManager.Play("ErrorSound", 1.0f);
+                            this.IsDone = true;
+                            this.NextState = new CreditsState(this);
                         }
 
                         break;
 
                     case 4:
                         UIInitializer.StartButton.ChangeToNormalImage();
+                        UIInitializer.OptionsButton.ChangeToNormalImage();
                         UIInitializer.CreditsButton.ChangeToNormalImage();
                         UIInitializer.ExitButton.ChangeToHoverImage();
                         if (Keyboard.GetState().IsKeyDown(Keys.Enter))

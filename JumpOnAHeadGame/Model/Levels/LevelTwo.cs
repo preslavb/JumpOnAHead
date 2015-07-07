@@ -24,10 +24,15 @@
 
             this.ListOfSnowballs = new List<Snowball>();
 
+            this.ListOfHealthPacks = new List<HealthPack>
+            {
+                new HealthPack(new Vector2(610, 300), AnimationFactory.CreateHealthPack())
+            };
+
             this.ListOfPilesOfSnow = new List<PileOfSnow>
             {
-                new PileOfSnow(new Vector2(650, 880), UIInitializer.CreateSprite("PileOfSnow")), 
-                new PileOfSnow(new Vector2(510, 880), UIInitializer.CreateSprite("PileOfSnow")), 
+                new PileOfSnow(new Vector2(660, 880), UIInitializer.CreateSprite("PileOfSnow")), 
+                new PileOfSnow(new Vector2(500, 880), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(-30, 230), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(1185, 230), UIInitializer.CreateSprite("PileOfSnow")), 
             };

@@ -12,7 +12,7 @@
             Animation currentAnimation = new Animation(new Vector2(71, 120), Globals.Content.Load<Texture2D>("PlayerSpriteSheet"), 60);
             currentAnimation.AnimationStates = new List<AnimationState>();
             currentAnimation.AnimationStates.Add(new AnimationState("Walking", new Vector2(71, 120), 9, 0));
-            currentAnimation.AnimationStates.Add(new AnimationState("Running", new Vector2(71, 120), 12, 1));
+            currentAnimation.AnimationStates.Add(new AnimationState("Running", new Vector2(71, 120), 11, 1));
             currentAnimation.AnimationStates.Add(new AnimationState("Idle", new Vector2(71, 120), 4, 2));
 
             currentAnimation.Tint = tint;
@@ -34,7 +34,7 @@
 
         public static Animation CreateHealthPack()
         {
-            Animation currentAnimation = new Animation(new Vector2(61, 80), Globals.Content.Load<Texture2D>("HealthPack"), 250);
+            Animation currentAnimation = new Animation(new Vector2(61, 80), Globals.Content.Load<Texture2D>("HealthPack"), 300);
             currentAnimation.AnimationStates = new List<AnimationState>();
             currentAnimation.AnimationStates.Add(new AnimationState("Normal", new Vector2(61, 80), 4, 0));
 

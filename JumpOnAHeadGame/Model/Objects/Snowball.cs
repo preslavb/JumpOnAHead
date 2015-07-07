@@ -4,6 +4,7 @@
     using JumpOnAHeadGame.Model.Players;
     using JumpOnAHeadGame.View.UI;
     using Microsoft.Xna.Framework;
+    using System.Collections.Generic;
 
     public class Snowball
     {
@@ -65,22 +66,28 @@
             }
         }
 
-        public void ActOnPlayer(Player player)
+        public void ActOnPlayer(List<Player> players)
         {
-            if (this.Bounds.Intersects(player.Bounds))
+            foreach (var player in players)
             {
-                SoundManager.Play("SnowballHit");
-                this.IsMelting = true;
-                player.Health -= 10;
+                if (this.Bounds.Intersects(player.Bounds))
+                {
+                    SoundManager.Play("SnowballHit");
+                    this.IsMelting = true;
+                    player.Health -= 10;
+                }
             }
         }
 
-        public void ActOnBlock(Block block)
+        public void ActOnBlock(List<Block> blocks)
         {
-            if (this.Bounds.Intersects(block.Bounds))
+            foreach (var block in blocks)
             {
-                SoundManager.Play("SnowballHitBlock");
-                this.IsMelting = true;
+                if (this.Bounds.Intersects(block.Bounds))
+                {
+                    SoundManager.Play("SnowballHitBlock");
+                    this.IsMelting = true;
+                } 
             }
         }
     }
