@@ -18,11 +18,9 @@
 
         public List<Player> ListOfPlayers;
 
+        public List<GameObject> ListOfGameObjects;
+
         public List<Snowball> ListOfSnowballs;
-
-        public List<Block> ListOfBlocks;
-
-        public List<PileOfSnow> ListOfPilesOfSnow;
 
         public List<HealthPack> ListOfHealthPacks;
 

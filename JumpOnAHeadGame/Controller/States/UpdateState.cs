@@ -33,28 +33,32 @@
                 // Creating Healthpacks
                 foreach (var healthpack in StateMachine.CurrentLevel.ListOfHealthPacks)
                 {
-                   healthpack.Animation.Position = healthpack.Position;
-                   healthpack.Bounds = new Rectangle((int)healthpack.Position.X, (int)healthpack.Position.Y, healthpack.Animation.SourceRectangle.Width, healthpack.Animation.SourceRectangle.Height);
-                   if (healthpack.IsActive)
-                   {
-                       if (!healthpack.IsDrawn)
-                       {
-                           this.SpritesInState.Add(healthpack.Animation);
-                           healthpack.IsDrawn = true;
-                       }
-                    healthpack.ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers);
-                   }
-                   else
-                   {
-                       this.SpritesInState.Remove(healthpack.Animation);
-                       healthpack.IsDrawn = false;
-                   } 
+                    healthpack.Animation.Position = healthpack.Position;
+                    healthpack.Bounds = new Rectangle((int)healthpack.Position.X, (int)healthpack.Position.Y, healthpack.Animation.SourceRectangle.Width, healthpack.Animation.SourceRectangle.Height);
+                    if (healthpack.IsActive)
+                    {
+                        if (!healthpack.IsDrawn)
+                        {
+                            this.SpritesInState.Add(healthpack.Animation);
+                            healthpack.IsDrawn = true;
+                        }
+
+                        healthpack.ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers);
+                    }
+                    else
+                    {
+                        this.SpritesInState.Remove(healthpack.Animation);
+                        healthpack.IsDrawn = false;
+                    }
                 }
 
                 // Using PileOfSnow
-                foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
+                foreach (var gameObject in StateMachine.CurrentLevel.ListOfGameObjects)
                 {
-                    pile.ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers);
+                    if (gameObject.GetType() != typeof(Block))
+                    {
+                        gameObject.ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers);
+                    }
                 }
 
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfPlayers.Count; i++)
@@ -78,7 +82,7 @@
                     }
 
                     // Base Movement, Animation and Bounds
-                    StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfBlocks);
+                    StateMachine.CurrentLevel.ListOfPlayers[i].Move(StateMachine.CurrentLevel.ListOfGameObjects);
                     StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.Position = StateMachine.CurrentLevel.ListOfPlayers[i].Position;
                     StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.IsFacingRight = StateMachine.CurrentLevel.ListOfPlayers[i].IsFacingRight;
                     StateMachine.CurrentLevel.ListOfPlayers[i].Bounds = new Rectangle((int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.X, (int)StateMachine.CurrentLevel.ListOfPlayers[i].Position.Y, StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.SourceRectangle.Width, StateMachine.CurrentLevel.ListOfPlayers[i].PlayerAnimation.SourceRectangle.Height);
@@ -108,10 +112,9 @@
                 for (int i = 0; i < StateMachine.CurrentLevel.ListOfSnowballs.Count; i++)
                 {
                     // Collision
-                        StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers);
+                    StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnPlayer(StateMachine.CurrentLevel.ListOfPlayers);
 
-                        StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnBlock(StateMachine.CurrentLevel.ListOfBlocks);
-
+                    StateMachine.CurrentLevel.ListOfSnowballs[i].ActOnBlock(StateMachine.CurrentLevel.ListOfGameObjects);
 
                     // Movement and Destruction
                     if (!StateMachine.CurrentLevel.ListOfSnowballs[i].IsMelting)
@@ -180,20 +183,12 @@
                     this.SpritesInState.Add(player.PlayerAnimation);
                 }
 
-                // Creating blocks
-                foreach (var block in StateMachine.CurrentLevel.ListOfBlocks)
+                // Creating game objects (PileOfSnow and Blocks)
+                foreach (var gameObject in StateMachine.CurrentLevel.ListOfGameObjects)
                 {
-                    block.Sprite.Position = block.Position;
-                    block.Bounds = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.Texture.Width, block.Sprite.Texture.Height);
-                    this.SpritesInState.Add(block.Sprite);
-                }
-
-                // Creating Piles of snow
-                foreach (var pile in StateMachine.CurrentLevel.ListOfPilesOfSnow)
-                {
-                    pile.Sprite.Position = pile.Position;
-                    pile.Bounds = new Rectangle((int)pile.Position.X, (int)pile.Position.Y, pile.Sprite.Texture.Width, pile.Sprite.Texture.Height);
-                    this.SpritesInState.Add(pile.Sprite);
+                    gameObject.Sprite.Position = gameObject.Position;
+                    gameObject.Bounds = new Rectangle((int)gameObject.Position.X, (int)gameObject.Position.Y, gameObject.Sprite.Texture.Width, gameObject.Sprite.Texture.Height);
+                    this.SpritesInState.Add(gameObject.Sprite);
                 }
 
                 // Creating active healthpacks

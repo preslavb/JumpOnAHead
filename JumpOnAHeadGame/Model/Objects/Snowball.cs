@@ -72,15 +72,18 @@
             }
         }
 
-        public void ActOnBlock(List<Block> blocks)
+        public void ActOnBlock(List<GameObject> gameObjects)
         {
-            foreach (var block in blocks)
+            foreach (var gameObject in gameObjects)
             {
-                if (this.Bounds.Intersects(block.Bounds))
+                if (gameObject.GetType() == typeof(Block))
                 {
-                    SoundManager.Play("SnowballHitBlock");
-                    this.IsMelting = true;
-                } 
+                    if (this.Bounds.Intersects(gameObject.Bounds))
+                    {
+                        SoundManager.Play("SnowballHitBlock");
+                        this.IsMelting = true;
+                    }
+                }
             }
         }
     }

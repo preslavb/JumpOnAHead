@@ -8,11 +8,6 @@
 
     public abstract class GameObject
     {
-        public GameObject(Vector2 position)
-        {
-            this.Position = position;
-        }
-
         public GameObject(Vector2 position, Sprite sprite)
         {
             this.Position = position;

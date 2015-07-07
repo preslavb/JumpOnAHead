@@ -18,7 +18,7 @@
             this.LevelBackground = UIInitializer.CreateSprite("Level2Background");
 
             LevelTwo.Player1 = new Player(Keys.Left, Keys.Right, Keys.Up, Keys.Down, new Vector2(50, 800), AnimationFactory.CreatePlayerAnimation(Color.Aquamarine), true);
-            LevelTwo.Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), AnimationFactory.CreatePlayerAnimation(Color.Peru), false); 
+            LevelTwo.Player2 = new Player(Keys.A, Keys.D, Keys.W, Keys.S, new Vector2(1150, 800), AnimationFactory.CreatePlayerAnimation(Color.Peru), false);
 
             this.ListOfPlayers = new List<Player> { Player1, Player2 };
 
@@ -29,16 +29,14 @@
                 new HealthPack(new Vector2(610, 300), AnimationFactory.CreateHealthPack())
             };
 
-            this.ListOfPilesOfSnow = new List<PileOfSnow>
-            {
+            this.ListOfGameObjects = new List<GameObject> 
+            { 
+                // PileOfSnow
                 new PileOfSnow(new Vector2(660, 880), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(500, 880), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(-30, 230), UIInitializer.CreateSprite("PileOfSnow")), 
                 new PileOfSnow(new Vector2(1185, 230), UIInitializer.CreateSprite("PileOfSnow")), 
-            };
 
-            this.ListOfBlocks = new List<Block> 
-            { 
                 // TOP BLOCK LINE
                 new Block(new Vector2(0, 70), UIInitializer.CreateSprite("IceCube")), 
                 new Block(new Vector2(40, 70), UIInitializer.CreateSprite("IceCube")), 
